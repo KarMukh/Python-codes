@@ -1,8 +1,8 @@
 #Write a program that asking the user's name prints it.
-input("what is your name?")
+input("what is your name? ")
 
 #Write a program that the user's name prints it with the word Hello.
-print("Hello " + input("what is your name?")
+print("Hello " + input("what is your name? ")
 
 
 #Write a program that prints the number of characters in a user's name.
