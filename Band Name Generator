@@ -1,0 +1,3 @@
+#Write a program that prints the number of characters in a user's name.
+#You can put functions inside other functions.
+print( len( input("what is your name? ") ) )
