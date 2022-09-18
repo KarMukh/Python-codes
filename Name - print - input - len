@@ -8,3 +8,21 @@ print("Hello " + input("what is your name? ")
 #Write a program that prints the number of characters in a user's name.
 #You can put functions inside other functions.
 print( len( input("what is your name? ") ) )
+
+
+#Write a program that switches the values stored in the variables a and b.
+# You should not have to type any numbers in your code. You might need to make some more variables.
+# Don't change the code below 
+a = input("a: ")
+b = input("b: ")
+# Don't change the code above 
+####################################
+#Write your code below this line 
+o=a
+a=b
+b=o
+#Write your code above this line 
+####################################
+# Don't change the code below 
+print("a: " + a)
+print("b: " + b)
