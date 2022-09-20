@@ -1,3 +1,5 @@
+# Write a band name generator program so it asks you for a city that you grew up in and the name of your pet.
+
 #1. Create a greeting for your program.
 print("Welcome to the Band generator!")
 #2. Ask the user for the city that they grew up in.
