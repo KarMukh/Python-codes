@@ -3,6 +3,7 @@
 two_digit_number = input("Type a two digit number: ")
 
 #To find out the data type of two_digit_number. By the way it is 'str' and not 'int'.
+#This one is just to support to find out the type but there is no need to write it in real coding process.
 print(type(two_digit_number))
 ####################################
 
