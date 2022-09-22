@@ -1,0 +1,19 @@
+#Write a program that calculates the Body Mass Index (bmi) from a user's weight and height.
+#The BMI is calculated by dividing a person's weight (in kg) by the square of their height (in m).
+#Warning you should convert the result to a whole number.
+
+
+height = input("enter your height in m: ")
+weight = input("enter your weight in kg: ")
+
+#Check the type of height and weight. And as we can see they are strings 'str'.
+#This one just for us, no need to code 2 strings below.
+print(type(height))
+print(type(weight))
+
+#Write your code below this line
+#Frirst we need to convert weight to integer 'int' (as it is in kg) and height to 'float' (as it is in meters).
+bmi = int(weight)/ float(height) ** 2
+#Then we need to convert float number bmi to whole number ('int').
+bmi_int = int(bmi)
+print(bmi_int)
