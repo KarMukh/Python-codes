@@ -1,0 +1,41 @@
+#If the bill was $150.00, split between 5 people, with 12% tip. 
+
+#Each person should pay (150.00 / 5) * 1.12 = 33.6
+#Format the result to 2 decimal places = 33.60
+
+print("Welcome to the tip calculator!")
+
+
+#Now, in this case, because the bill is likely to have numbers after the decimal place, it's probably better that we turn it into a float so that we get the most accurate result possible.
+
+bill = float(input("What is the amount of total bill? $"))
+tip_percentage = int(input("How much would you like to give? 10, 12 or 15? "))
+
+people = int(input("How many people to split the bill? "))
+
+bill_with_tip = tip_percentage/100 * bill + bill
+
+#Or we ca do the same: bill_with_tip = bill * (1 + tip/100)
+#tip = (tip_percentage/100)
+
+#We can print(type(people))
+#We can print(type(total_bill))
+#We can print(bill_with_tip)
+
+bill_per_person = bill_with_tip/people
+
+#Now, at this stage, this bill_per_person is a floating-point number, so it could have many, many digits after the decimal point. 
+#If we want to round this to two decimal places, we have access to a function called round. 
+#And here we can add the number that we want around, which is the bill_per_person, and then after a comma, we can specify how precise, how many numbers or how many decimal places do we want to round this bill to. 
+
+final_amount_per_person = round(bill_per_person, 2)
+
+#f is for F string to use different types in one string.
+print(f"Each person should pay ${final_amount_per_person}")
+
+
+#So instead of using round, we can create this final amount variable by creating a string using that format, :.2f, and then we can use the format function to pass in that bill_per_person. 
+
+#final_amount_per_person = "{:.2f}".format(bill_per_person)
+
+#And when we run this code, using the same inputs ($150, 12%, 5 person), we now get a 33.60 instead of rounded 33.6 at the very end and this is basically turned this bill_per_person, which is a float into a string. And that string is abiding by this particular format, which is the two decimal places.
