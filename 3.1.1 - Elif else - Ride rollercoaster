@@ -1,0 +1,23 @@
+# Print a program so that in order for somebody to actually purchase a ticket to go on the rollercoaster ride, they will need to be over 120 centimeters.
+# Depends on the age they pay different tariffs.
+
+print("Welcome to the rollercoaster!")
+height = int(input("What is your height in cm? "))
+
+if height > 120:
+  print("You can ride the rollercoaster.")
+  age = int(input("What is your age? ")
+  if age < 12:
+    print("Please pay $5.")
+
+# Elif is for else if.
+
+  elif age <= 18:
+    print("Please pay $7.")
+
+# We can use as many elif conditions between the if and else as we like.
+
+  else:
+    print("Please pay $12.")
+else:
+  print("Sorry, you have to grow taller before you can ride.")
