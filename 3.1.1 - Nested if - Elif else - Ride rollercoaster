@@ -11,7 +11,7 @@ if height > 120:
     print("Please pay $5.")
 
 # Elif is for else if.
-# Line 10 if age < 12: SyntaxError: invalid syntax.
+####################### Check on IDLE. Line 10 if age < 12: SyntaxError: invalid syntax.
 
   elif age <= 18:
     print("Please pay $7.")
