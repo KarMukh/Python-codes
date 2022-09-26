@@ -1,3 +1,5 @@
+#Print a program so that in order for somebody to actually purchase a ticket to go on the rollercoaster ride, they will need to be over 120 centimeters.
+
 print("Welcome to the rollercoaster!")
 height = int(input("What is your height in cm? "))
 
