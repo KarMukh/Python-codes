@@ -14,6 +14,8 @@
 
 year = int(input("Which year do you want to check? "))
 
+# The modulo is written as a percentage sign (%) in Python. It gives you the remainder after a division.
+
 if year % 4 == 0:
   if year % 100  == 0:
     if year % 400 == 0:
