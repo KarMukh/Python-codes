@@ -1,0 +1,41 @@
+#Print a program so that in order for somebody to actually purchase a ticket to go on the rollercoaster ride, they will need to be over 120 centimeters.
+#Now what if you were in a situation where you need to check for multiple conditions even if the previous one was already true?
+#People want to keep a picture for the memories. We want to be able to charge users an extra $3 if they want to purchase a ticket that includes a photo.
+
+# This is completely independent of their age or their height. Even if we've already gotten their age and height and determined their ticket price, this is an extra question. Do you want a photo or not? Yes or no. If you do, then we're going to add $3 to your existing ticket price.
+
+#If condition 1 is true, then do a, but then the code is going to go to the next case and check if condition 2 is also true, in which case it will do B and if the final condition is also true, it's going to do C. And if all three conditions are checked and if it's so happens that all three conditions are true, then A, B and C will all be executed. Whereas on the standard if else example only one of these things, A, B, or C will be carried out.
+
+print("Welcome to the rollercoaster!")
+height = int(input("What is your height in cm? "))
+# We need to create a variable up here called bill and to set it to equal zero. And further below we need to set the bill to the price that they're supposed to pay.
+
+bill = 0
+
+if height >= 120:
+  print("You can ride the rollercoaster.")
+  age = int(input("What is your age? "))
+  if age < 12:
+    bill = 5
+    print("Child tickets are $5.")
+  elif age <= 18:
+    bill = 7
+    print("Youth tickets are $7.")
+  else:
+    bill = 12
+    print("Adult tickets are $12.")
+
+  wants_photo = input("Do you want a photo taken? Y or N. ")
+
+  # And this is going to apply to everybody of above mentioned 3 age groups no matter their age.
+  if wants_photo == "Y":
+    bill += 3
+    # When you want to increase the current value that's held in a variable and you wanna save it back into the variable, you can simply write plus equals. So bill += 3 is the same as bill = bill + 3.
+
+  # After this if statement is completed, I don't actually have to write a companion else statement because in this case, if the answer is no, then we're simply going to do nothing.
+
+  print(f"Your final bill is ${bill}.")
+  
+else:
+  print("Sorry, you have to grow taller before you can ride.")
+  
