@@ -26,6 +26,7 @@ if height >= 120:
     bill = 7
     print("Youth tickets are $7.")
   
+  #So we've currently got three conditions: age, less than 12, age between 12 and 18, and finally everybody else.
   
   #So let's say that in addition to these existing price categories, what if you had to add a separate price category for those people who are aged between 45 and 55 and those people get to ride for free?
   #And according to Wikipedia, midlife crises typically occur when you're a 45 to 55 years old.
