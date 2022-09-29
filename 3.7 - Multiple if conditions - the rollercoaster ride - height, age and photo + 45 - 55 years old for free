@@ -40,6 +40,7 @@ if height >= 120:
   elif age >= 45 and age <= 55:
     print("Everything is going to be ok. Have a free ride on us!")
   
+  #And we've been able to do this because we know about the and logical operator.
   
   else:
     bill = 12
