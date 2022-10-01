@@ -1,3 +1,8 @@
+# To find the task for this program follow the link https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&title=Treasure%20Island%20Conditional.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1oDe4ehjWZipYRsVfeAx2HyB7LCQ8_Fvi%26export%3Ddownload
+
+#Starting and ending the string with 3 single couts ''' aloows us to write one string in several lines.
+
+
 print('''
 *******************************************************************************
           |                   |                  |                     |
@@ -23,9 +28,18 @@ ____/______/______/______/______/_____"=.o|o_.--""___/______/______/______/____
 print("Welcome to Treasure Island.")
 print("Your mission is to find the treasure.")
 
-#Write your code below this line 👇
+
+#If we use you’re in the string which of course starts with ‘ and ends same way and we use also “ ” symbols in the string too then we can get it to ignore a symbol ’ in you’re as a string ending symbol by using the backslash like this you\’re. So this way it basically escapes the string and it will see it as text and now we have a complete string, and this is just going to be interpreted as text because we told it to with the backslash. See the following example:
+
+# choice1 = input('You\'re at a cross road. Where do you want to go? Type "left" or "right" \n').lower()
 
 choice1 = input('You\'re at a cross road. Where do you want to go? Type "left" or "right" \n').lower()
+
+# In this example \n at the end is for to print the answer from a new line and the .lower() is to change all the letters to the lower case for the program no matter how we’ve typed them, e.g Left, LEFT, left and so on.
+
+
+#Remember the double equals is checking whether a left hand side and righthand side is equal and a single equal sign is assigning the right-hand side to this particular variable name.
+
 if choice1 == "left":
   choice2 = input('You\'ve come to a lake. There is an island in the middle of the lake. Type "wait" to wait for a boat. Type "swim" to swim across. \n').lower()
   if choice2 == "wait":
