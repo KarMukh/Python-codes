@@ -1,7 +1,11 @@
 # To find the task for this program follow the link https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&title=Treasure%20Island%20Conditional.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1oDe4ehjWZipYRsVfeAx2HyB7LCQ8_Fvi%26export%3Ddownload
 
+#https://www.draw.io/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Treasure%20Island%20Conditional.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1oDe4ehjWZipYRsVfeAx2HyB7LCQ8_Fvi%26export%3Ddownload
+
 #Starting and ending the string with 3 single couts ''' aloows us to write one string in several lines.
 
+
+#Here you will find a large collection of ASCII drawings and other related ASCII art images. https://ascii.co.uk/art
 
 print('''
 *******************************************************************************
@@ -31,7 +35,7 @@ print("Your mission is to find the treasure.")
 
 #If we use you’re in the string which of course starts with ‘ and ends same way and we use also “ ” symbols in the string too then we can get it to ignore a symbol ’ in you’re as a string ending symbol by using the backslash like this you\’re. So this way it basically escapes the string and it will see it as text and now we have a complete string, and this is just going to be interpreted as text because we told it to with the backslash. See the following example:
 
-# choice1 = input('You\'re at a cross road. Where do you want to go? Type "left" or "right" \n').lower()
+# example: choice1 = input('You\'re at a cross road. Where do you want to go? Type "left" or "right" \n').lower()
 
 choice1 = input('You\'re at a cross road. Where do you want to go? Type "left" or "right" \n').lower()
 
