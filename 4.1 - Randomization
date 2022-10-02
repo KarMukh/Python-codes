@@ -1,0 +1,26 @@
+import random
+
+#The random module is a module that the Python team created to make it easier for us to generate our random numbers without needing to get into the complexities of all of the math that's required to generate pseudorandom numbers.
+
+#We can generate a random integer by using the randint function, providing an a and b. And it will return a random integer between a and b, including both of those numbers.
+
+randomInteger = random.randint(0, 10)
+print(randomInteger)
+
+#We also can use the random module that contains the random function and it will return a random floating-point number between 0 and 1. But it's really important to note that in this case it doesn't actually include 1. So it goes up to like 0.9999999, but not including 1.
+
+randomFloat = random.random()
+print(randomFloat)
+
+# As we can see previous random function always generates a number between 0 and 1 and it has many decimal places.
+#But what if we want a random floating-point number between 0 and 5?
+
+#So effectively by multiplying this random_float by 5, I will end up with random numbers, but of course they're now floats, right? So it could be 0.000 ... all the way to 4.999999
+
+randomFloat1 = random.random() * 5
+print(randomFloat1)
+
+
+print(type(randomFloat))
+print(type(randomInteger))
+print(randomInteger + randomFloat)
