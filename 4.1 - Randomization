@@ -7,6 +7,13 @@ import random
 randomInteger = random.randint(0, 10)
 print(randomInteger)
 
+# https:     //en.wikipedia.org/wiki/Mersenne_Twister
+
+# Mersenne Twister is a general-purpose pseudorandom number generator (PRNG)
+
+# The link below performs Random vs. Pseudorandom Number Generators
+# https:    //www.khanacademy.org/computing/computer-science/cryptography/crypt/v/random-vs-pseudorandom-number-generators
+
 #We also can use the random module that contains the random function and it will return a random floating-point number between 0 and 1. 
 #But it's really important to note that in this case it doesn't actually include 1. So it goes up to like 0.9999999, but not including 1.
 
@@ -21,6 +28,9 @@ print(randomFloat)
 randomFloat1 = random.random() * 5
 print(randomFloat1)
 
+
+# Python random Module – Generate Random Numbers/Sequences
+#https:   //www.askpython.com/python-modules/python-random-module-generate-random-numbers-sequences
 # To check the types we can do following:
 
 print(type(randomFloat))
