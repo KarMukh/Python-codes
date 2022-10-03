@@ -1,0 +1,13 @@
+# Create basically a virtual coin-toss program so that when you run the code, it should give you tails or heads depending on which random number was generated.
+
+#Hint: Remember to import the random module first. 🎲
+
+
+import random
+
+coin_random_side = random.randint(0, 1)
+
+if coin_random_side == 1:
+  print("Tails")
+else:
+  print("Heads")
