@@ -1,0 +1,39 @@
+# You are going to write a program that will select a random name from a list of names. The person selected will have to pay for everybody's food bill.
+# Important: You are not allowed to use the choice() function. Further I will explain choice() function.
+
+import random
+# Split string method
+names_string = input("Give me everybody's names, separated by a comma. ")
+names = names_string.split(", ")
+
+#In the previous line names = names_string.split(", ") splits the string names_string into individual names and puts them inside a List called names: [Bob, John, Jane, Michael]. 
+#Split allows me to split a string into separate components based on some sort of divider.
+#If we use the split on a comma and a space, then it will take out the comma and the space and it will put everything else as separate items inside a list.
+#For this to work, we should enter all the names as names followed by comma then space. e.g. name, name, name
+
+#Example output: Michael is going to buy the meal today!
+
+#print(names[0]) This can pick a item from the list by adding a set of square brackets and then a index number.
+
+# The len function can be used to get the number of elements in a list or the number of characters.
+
+num_items = len(names)
+
+#print(len(names))
+
+# We can specify the start and end. So we always need one less than the total number of items.
+random_choice = random.randint(0, num_items - 1)
+
+
+#So we can say names[], and then we're going to use the random choice to get hold of the random item. 
+#print(random_choice)
+person_who_will_pay = names[random_choice]
+print(person_who_will_pay + " is going to buy the meal today.")
+
+
+# Search AskPython and you search for the random module and scroll down, you'll find that you can actually generate random items from a sequence such as a list by writing random.choice, and it will actually pick an item from that list.
+
+###person_who_will_pay = random.choice](names) will do exactly the same as before but with far less code.
+
+
+print(person_who_will_pay + " is going to buy the meal today.")
