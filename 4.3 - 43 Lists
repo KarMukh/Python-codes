@@ -2,6 +2,8 @@
 fruits = ["Apple", "Banana", "Apricot", "Peach", "Pear", "Oranges", "Dragon fruit", "Grapefruit"]
 
 print(fruits)
+# We can check the lengh of the list:
+print(len(fruits))
 
 print(fruits[0])
 #0 printing first fruit in the list: Apple
@@ -12,17 +14,25 @@ print(fruits[-1])
 fruits[-2] = "Cherry"
 # This will change "Dragon fruit" in the list, which is the 2nd one from the end, to "Cherry".
 print(fruits)
+# We can check the lengh of the list:
+print(len(fruits))
 
 
 fruits.append("Lime")
 #append add a single item to the end of the changed list.
 print(fruits)
+# We can check the lengh of the list:
+print(len(fruits))
 
 fruits.extend(["Pomelo", "Kumquat", "Lychee"])
 # extend is for extending the list (in this case appended list) adding to it another list.
 print(fruits)
+# We can check the lengh of the list:
+print(len(fruits))
 
 
-#More on Lists¶: https://docs.python.org/3/tutorial/datastructures.html
+
+
+#More on Lists: https://docs.python.org/3/tutorial/datastructures.html
 # Convert String to List in Python: https://www.askpython.com/python/string/convert-string-to-list-in-python
 
