@@ -38,9 +38,15 @@ print(len(fruits))
 
 
 vegetables = ["Carrots", "Garlic", "Cabbage"]
-other_vegetables = ["Pumpkin", " Spinach"]
+other_vegetables = ["Pumpkin", "Spinach"]
 final_vegetables_list = [vegetables, other_vegetables]
 
 print(final_vegetables_list)
+#for final_vegetables_list will print [["Carrots", "Garlic", "Cabbage"], ["Pumpkin", "Spinach"]]
+
 print(final_vegetables_list[1][1])
+#For final_vegetables_list[1][1] will print Spinach as the second item of the second list.
+
+print(final_vegetables_list[0][0])
+#For final_vegetables_list[0][0] will print Carrots as the first item of the first list.
 
