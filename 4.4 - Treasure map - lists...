@@ -1,0 +1,35 @@
+#You are going to write a program that will mark a spot with an X.
+#This map contains a nested list. When map is printed this is what the nested list looks like:
+
+#[['⬜️', '⬜️', '⬜️'],['⬜️', '⬜️', '⬜️'],['⬜️', '⬜️', '⬜️']]
+#Your job is to write a program that allows you to mark a square on the map using a two-digit system. 
+#The first digit is the vertical location and the second digit is the horizontal location. 
+#So an input of 23 should place an X at the position: column number 2 and raw number 3.
+#We need to remember that 23 typed on consol is string.
+
+row1 = ["⬜️","️⬜️","️⬜️"]
+row2 = ["⬜️","⬜️","️⬜️"]
+row3 = ["⬜️️","⬜️️","⬜️️"]
+map = [row1, row2, row3]
+print(f"{row1}\n{row2}\n{row3}")
+
+position = input("Where do you want to put the treasure? ")
+
+horizontal = int(position[0])
+#And in order to get the horizontal which we mentioned is the first digit, then we go ahead and get the zeroth item out of that string 23 which one is number 2. And int is to change our string to integer 2. 
+
+vertical = int(position[1])
+#And then the vertical is going to be the one at position one which in the number 23 is 3. And int is to change our string to integer 3.
+
+#Now, if we pass 3 into our map, then you can clearly see what's going to happen. There's 0, 1, 2, there is nothing at position three.
+#There is nothing that has been offset from the beginning by three. So that doesn't exist.
+
+#So we have to remove one from it to shift it to row three.
+
+#We can do the same by substituting the 3 with vertical so it'll work with any number.
+#e.g typing 23 means second column and third raw but in Python as we start from 0  it means 1 and 2.
+
+map[vertical - 1][horizontal - 1] = "X"
+#The thing we want to change it to is a capital X.
+
+print(f"{row1}\n{row2}\n{row3}")
