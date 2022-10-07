@@ -1,0 +1,78 @@
+
+# Rock, Paper, Scissors: Paper beats Rock, Rock beats Scissors, Scissors beats Paper.
+
+import random
+
+rock = '''
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+'''
+
+paper = '''
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+'''
+
+scissors = '''
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+'''
+# ''' on the start and ''' at the end in the names of our variables allow us to construct a string in many line.
+
+#Write your code below this line 👇
+game_images = [rock, paper, scissors]
+# Puting our images in one list.
+
+user_choice = int(input("What do you choose? Type 0 for Rock, 1 for Paper or 2 for Scisssors.\n"))
+# \n is about to start from a new line.
+# And int in the front is to change our inputs to integers, because though we get our inputs as a number, but the input is always going to be a string. So if we want this to be a number, then we're going to have to wrap it inside an int.
+if user_choice >= 3 or user_choice < 0: 
+    print("You typed an invalid number, you lose!")
+# User should choose between 0 and 2.
+# No need to do the same for computer, because we alredy have this above: computer_choice = random.randint(0, 2).
+#It is very essential to put this condition frist. If it's right at the bottom or in the middle then it's not going to be checked until one of the previous ones are checked.
+
+else:
+    print("Your choice:")
+    print(game_images[user_choice])
+    #So when the user chooses a number, then we're going to print from the game_images and we're going to use our little square     brackets to select the image we want from this list.
+
+    computer_choice = random.randint(0, 2)
+    # The computer is also going to choose between 0, 1 or 2.
+    # random.randint(0, 2) means computer makes its random choice range is from 0 to 2, including them, in other words: between     3 integers: 0, 1 and 2. 
+
+    #To print computer choice frist we print a string "Computer chose"
+    print("Computer chose:")
+
+    #And then we need to add another print statement to tap into the game_images and then inside some square brackets, I'm          going to use the computer choice which is going to be between 0, 1 and 2 as the index to pick out the corresponding image       from my list game_images.
+    print(game_images[computer_choice])
+  
+    if user_choice == 0 and computer_choice == 2:
+      print("You win!")
+    #In the above mentioned case user chose Rock and computer Scissors. And the vice versa case is below.
+
+    elif computer_choice == 0 and user_choice == 2:
+      print("You lose")
+
+    # As we have above mentioned 4 rules: if user_choice >= 3 or user_choice < 0, computer_choice = random.randint(0, 2), elif     user_choice == 0 and computer_choice == 2 and elif computer_choice == 0 and user_choice == 2, now we can say if none of them     is happend then:
+  
+    elif computer_choice > user_choice:
+      print("You lose")
+
+    elif user_choice > computer_choice:
+      print("You win!")
+  
+    elif computer_choice == user_choice:
+      print("It's a draw")
