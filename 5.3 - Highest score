@@ -10,6 +10,7 @@ for n in range(0, len(student_scores)):
   student_scores[n] = int(student_scores[n])
 print(student_scores)
 #################### we need to check recent 3 rows above!!!
+# So in this case, I'm creating a range between a and b and then I'm going to get hold of each number in that range and do something with that number.
 
 # print(max(student_scores)) gonna show the maximum value from the inputed list.
 # print(min(student_scores)) gonna show the minimum value from the inputed list.
