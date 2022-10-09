@@ -1,0 +1,44 @@
+# Write a program that calculates the average student height from a List of heights.
+# Important You should not use the sum() or len() functions in your answer. You should try to replicate their functionality using what you have learnt about for loops.
+# Remember to use the round() function to round the average height before you print it.
+
+student_heights = input("Input a list of student heights ").split()
+#The input is going to look something like a bunch of numbers separated by a space. e.g 156 178 165 171 187
+
+for n in range(0, len(student_heights)):
+  student_heights[n] = int(student_heights[n])
+
+##########
+#print(len(student_heights)) gonna print the number of items in the list.
+#print(sum(student_heights)) this gives us the total of all the items from a list.
+
+#######
+#As a solution we can do following:
+# total_height = sum(student_heights)
+# number_of_students = len(student_heights)
+# average_height = round(total_height / number_of_students) and the round is for to round the result to a whole number.
+# print(average_height)
+# But this doesn't use a single for loop. So this is definitely not the right way to solve the challenge.
+
+######
+total_height = 0
+for height in student_heights:
+  total_height += height
+#So if we start off total_height as zero, and then we write a for loop and we say for height in student_heights, and then we add a colon, then now we're going to loop through each of the heights inside this list and we're going to add it to our total height.
+#print(total_height) is gonna show 857, as the sum of 156 178 165 171 187 is 857.
+
+number_of_students = 0
+for student in student_heights:
+  number_of_students += 1
+
+# We start off the numbers of students as zero, and then we write a for loop for students in student heights, and inside our for loop all that we do is that we add one to our numbers of students each time our for loop runs.The for loop will run for as many times as there are items inside the list. If there are five items inside the list, then the for loop is going to run five times, which means this line of code is going to be called five times, which means we add five to our numbers of students and we end up with the total_length of the list.
+
+#print(number_of_students) gonna show 5, as we have 5 items in the list.
+
+
+average_height = round(total_height / number_of_students)
+print(average_height)
+
+# print(average_height) gonna show 171, as 857/5=171.4 and rounded is 171 as a whole number.
+
+
