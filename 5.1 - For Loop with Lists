@@ -1,0 +1,18 @@
+#1 - For Loop 
+fruits = ["Apple", "Peach", "Pear"]
+for fruit in fruits:
+  print(fruit)
+  print(fruit + " Pie")
+print(fruits)
+
+# If print(fruits) is indented that back to the beginning, so now it's no longer inside the for loop, then it's only going to print once and it's going to print it after the for loop is done.
+
+
+#2 - For Loop with Lists
+fruits = ["Apple", "Peach", "Pear"]
+for fruit in fruits:
+  print(fruit)
+  print(fruit + " Pie")
+  print(fruits)
+  
+  #Putting print(fruits) inside the for loop, so indented after the for loop, then it's going to print that for as many times as the loop runs, which is going to be three because there's three items in our list. 
