@@ -1,0 +1,39 @@
+# You are going to write a program that calculates the highest score from a List of scores.
+# e.g. student_scores = [78, 65, 89, 86, 55, 91, 64, 89] 
+#### Example Input 78 65 89 86 55 91 64 89
+# Important you are not allowed to use the max or min functions. The output words must match the example. i.e "The highest score in the class is: x"
+
+student_scores = input("Input a list of student scores ").split()
+#The input is going to look something like a bunch of numbers separated by a space. e.g 78 65 89 86 55 91 64 89
+
+for n in range(0, len(student_scores)):
+  student_scores[n] = int(student_scores[n])
+print(student_scores)
+#################### we need to check recent 3 rows above!!!
+
+# print(max(student_scores)) gonna show the maximum value from the inputed list.
+# print(min(student_scores)) gonna show the minimum value from the inputed list.
+
+# Instead, of using max or min functions we can use for loops to replicate the underlying functionality of this max function. Because people tend to use Python to do a lot of data manipulation, to do a lot of mathematical calculations.
+
+highest_score = 0
+#  We had a variable called the highest_score, and we are going to start it off as zero.
+
+
+# The first thing we want to do is we probably want to get a hold of each of the scores inside our list of student scores.
+# So we are going to write something like for score in student_scores, so again, keeping that convention of singular from plural.
+
+for score in student_scores:
+
+# And then inside the loop, we can use an if statement to check, well is the current score that we are looping through greater than the highest score that we've got. Well then if so, that means that this current score should actually be the highest score.
+  
+  if score > highest_score:
+    highest_score = score
+#So we can set the highest_score equal to score. And this loop will continue running until we've checked through all the scores inside the student_scores, and we've got the highest score stored inside this variable.
+    
+print(f"The highest score in the class is: {highest_score}")
+
+
+# Now, if you're at all confused about how this code works, then I recommend again, pasting it into Thonny: thonny.org. So you've got a list of scores and then you've got the code in the solution and click on debug.
+
+# And you can see how we actually step through each of the stages where we start off with a highest score being equal to zero, so that's where it is, and then we continue into the loop where we go through each of the scores inside the student_scores,
