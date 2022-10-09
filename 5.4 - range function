@@ -1,0 +1,15 @@
+# for loop with range
+# for number in range (1, 10)
+# So in this case, I'm creating a range between 1 and 10 (and not including 10) and then I'm going to get hold of each number in that range and do something with that number.
+# for number in range (1, 11)
+#So if we wanted all of the numbers from 1 to 10, we actually have to set a range between 1 and 11.
+# In both cases above by default, the range function will step through all the numbers from the start to the end, and it will increase by 1.
+
+#for number in range (1, 11, 2):
+  #print(number) we can check the result
+#Now, if we want it to increase by any other number, then we have to add another comma to the end of it and specify how large we want the step to be. So let's say we changed the step size to 2.
+
+total = 0
+for number in range(1, 101):
+  total += number
+print(total)
