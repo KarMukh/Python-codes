@@ -1,0 +1,26 @@
+# You are going to write a program that calculates the sum of all the even numbers from 1 to 100. Thus, the first even number would be 2 and the last one is 100: i.e. 2 + 4 + 6 + 8 +10 ... + 98 + 100
+# Important, there should only be 1 print statement in your console output. It should just print the final total and not every step of the calculation.
+
+# There are quite a few ways of solving this problem, but you will need to use the range() function in any of the solutions.
+
+
+
+total = 0
+# Instead of <<for number in range(2, 101, 2)>> if we change the range to start off from two <<for number in range(1, 101, 2)>> which is the first number that we have to start adding in our sequence, and then increase it by two every single time, then we end up with a range that includes all of the even numbers up to a hundred.
+
+for number in range(2, 101, 2):
+  total += number
+print(total)
+
+# Now remember that the indentation really matters because if we have it inside the for loop, then it's going to give us the total for every step of the calculation, because it's now included in the for loop and will be executed for as many times as the for loop runs.
+
+
+# Unother way of solving this is following:
+
+total1 = 0
+for number in range(1, 101):
+  if number % 2 == 0:
+# This means that number devided by 2 the remainder is 0.
+    total1 += number
+print(total1)
+
