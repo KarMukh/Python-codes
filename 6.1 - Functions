@@ -1,0 +1,21 @@
+# Functions
+
+print("Hello!")
+
+number_of_characters = len("Hello!")
+print(number_of_characters)
+
+# print or len are build in functions in Python
+# What if we wanted to make our own functions? How would we do that? Well, if we want to make our own function, we first start out with a keyword, which is called def. Here we're creating or defining our function. Below after def function comes the name of that function: my_function in this case. 
+# So after the name comes the parentheses, and now the final thing, the finishing touch to our function definition is a colon because that says everything that comes after that line and is indented belongs with the function.
+
+def my_function():
+  print("Hello!")
+  print("Bye")
+
+# But if we run this code, actually nothing will happen. And the reason is because we haven't yet executed the function.
+# We need to call the function, all we have to do is type the name of the function, which is my_function and then to add the parentheses and any necessary inputs. 
+
+my_function()
+
+#And now if I go ahead and run my code once more, then you'll see that by the time the computer reaches function"s line, it's going to search for this thing called my_ function. It sees that it was defined right here on line def function and it goes through all of the content and executes them in turn, line by line.
