@@ -17,3 +17,11 @@ bmi = int(weight)/ float(height) ** 2
 #Then we need to convert float number bmi to whole number ('int').
 bmi_int = int(bmi)
 print(bmi_int)
+
+###############################
+## In console we will get 
+##enter your height in m: 1.69
+##enter your weight in kg: 69
+##<class 'str'>
+##<class 'str'>
+##24
