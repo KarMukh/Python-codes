@@ -22,3 +22,9 @@ elif round_bmi <= 35:
   print(f"Your BMI is {round_bmi}, you are obese.")
 else:
   print(f"Your BMI is round_bmi, you are clinically obese.")
+  
+###########################
+## In console we will see:
+##enter your height in m: 1.69
+##enter your weight in kg: 69
+##Your BMI is 24, you have a normal weight.
