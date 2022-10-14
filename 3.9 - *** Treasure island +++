@@ -56,4 +56,15 @@ if lower_choose_direction == "left":
 else:
   print("Fall into a hall. Game over.")
   
+  
+  
+###############################
+
+## In console we will see the picture above and:
+##Welcome to Treasure Island.
+##Your mission is to find the treasure.
+##Which way do you want to go? left or right? left
+##Do you want to swim or wait? wait
+##Which door do you choose? yellow, red or blue? yellow
+##You Win!
 
