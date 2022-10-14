@@ -8,3 +8,13 @@ if number % 2 == 0:
   print("This is an even number.")
 else:
   print("This is an odd number.")
+
+
+###############################
+## In console we will see:
+##Which number do you want to check? 24
+##This is an even number.
+
+## Or
+##Which number do you want to check? 23
+##This is an odd number.
