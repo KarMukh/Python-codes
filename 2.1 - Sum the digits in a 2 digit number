@@ -4,10 +4,17 @@ two_digit_number = input("Type a two digit number: ")
 
 #To find out the data type of two_digit_number. By the way it is 'str' and not 'int'.
 #This one is just to support to find out the type but there is no need to write it in real coding process.
+
 print(type(two_digit_number))
 ####################################
 
 #Defining first and second digits and converting them from 'str' to 'int'.
+
 first_digit = int(two_digit_number[0])
+# Here 0 means we gonna take first number of two digits number
+
 second_digit = int(two_digit_number[1])
+# Here 0 means we gonna take second number of two digits number
+
 print(first_digit + second_digit)
+# For example if we type 23 in console then the result will be 5
