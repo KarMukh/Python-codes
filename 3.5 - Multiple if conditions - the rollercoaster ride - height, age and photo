@@ -39,3 +39,14 @@ if height >= 120:
 else:
   print("Sorry, you have to grow taller before you can ride.")
   
+  
+#############################
+## In console we will see:
+## Welcome to the rollercoaster!
+##What is your height in cm? 169
+##You can ride the rollercoaster.
+##What is your age? 41
+##Adult tickets are $12.
+##Do you want a photo taken? Y or N. y
+##Your final bill is $12.
+  
