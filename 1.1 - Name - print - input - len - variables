@@ -21,8 +21,6 @@ b = input("b: ")
 o=a
 a=b
 b=o
-#Write your code above this line 
 ####################################
-# Don't change the code below 
 print("a: " + a)
 print("b: " + b)
