@@ -38,4 +38,13 @@ print(f"Each person should pay ${final_amount_per_person}")
 
 #final_amount_per_person = "{:.2f}".format(bill_per_person)
 
-#And when we run this code, using the same inputs ($150, 12%, 5 person), we now get a 33.60 instead of rounded 33.6 at the very end and this is basically turned this bill_per_person, which is a float into a string. And that string is abiding by this particular format, which is the two decimal places.
+#And when we run this code, using the same inputs ($150, 12%, 5 person). 
+#we now get a 33.60 instead of rounded 33.6 at the very end and this is basically turned this bill_per_person, which is a float into a string. And that string is abiding by this particular format, which is the two decimal places.
+
+#####################################################
+## In console we will see:
+##Welcome to the tip calculator!
+##What is the amount of total bill? $75
+##How much would you like to give? 10, 12 or 15? 12
+##How many people to split the bill? 5
+##Each person should pay $16.8
