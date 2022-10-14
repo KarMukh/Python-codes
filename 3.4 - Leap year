@@ -28,4 +28,7 @@ else:
   print("This is a normal year.")
 
 # e.g. 2000, 2004, 2008, 2012, 2016 are leap years
- 
+##################
+## In console we will see:
+## Which year do you want to check? 2012
+##This is a leap year.
