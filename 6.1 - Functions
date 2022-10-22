@@ -18,4 +18,9 @@ def my_function():
 
 my_function()
 
-#And now if I go ahead and run my code once more, then you'll see that by the time the computer reaches function"s line, it's going to search for this thing called my_ function. It sees that it was defined right here on line def function and it goes through all of the content and executes them in turn, line by line.
+#And now if I go ahead and run my code once more, then you'll see that by the time the computer reaches function"s line.
+# It's going to search for this thing called my_ function. It sees that it was defined right here on line def function and it goes through all of the content and executes them in turn, line by line.
+
+### In the console wil be printed:
+### Hello
+### Bye
