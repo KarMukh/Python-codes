@@ -1,0 +1,40 @@
+# https://reeborg.ca/reeborg.html?lang=en&mode=python&menu=worlds%2Fmenus%2Freeborg_intro_en.json&name=Hurdle%201&url=worlds%2Ftutorial_en%2Fhurdle1.json
+
+
+def turn_right():
+    turn_left()
+    turn_left()
+    turn_left()
+
+def step():
+    move()
+    turn_left()
+    move()
+    turn_right()
+    move()
+    turn_right()
+    move()
+    turn_left()
+
+
+#step()
+#step()
+#step()
+#step()
+#step()
+#step()
+
+# Instead of calling step() function 6 times I can use for loop:
+
+for jump in range(6):
+    step()
+
+
+# So instead of calling step function six times, we could actually write a for loop that loops through and calls this step function six times.
+# I'm going to use in range function. And I'm going to say from 0 to 6, but not including 6.
+# And now I'm going to add the colon. And finally, inside this for loop, I'm going to call step just once. 
+
+# Not about this code:
+# To indent a banch of lines in windows we need to select the lines and then press Ctrl and ], and to bring back we need to press Ctrl and [
+# To comment out a banch of lines in windows we need to select the lines and then either CTRL+SHIFT+/ or CTRL+/. I tried both, but not working. So need to chek
+    
