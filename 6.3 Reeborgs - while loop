@@ -8,5 +8,40 @@
 #A robot located at (x, y) = (1, 1) carries no objects.
 #Goal to achieve: The final required position of the robot will be chosen at random.
 
+def turn_right():
+    turn_left()
+    turn_left()
+    turn_left()
+
+def step():
+    move()
+    turn_left()
+    move()
+    turn_right()
+    move()
+    turn_right()
+    move()
+    turn_left()
+
+    
+#We need to delete or comment out for loop lines to start the while loop.
+#for jump in range(6):
+    #step()
+while not at_goal():
+    step()
+
+#step()
+#step()
+#step()
+#step()
+#step()
+#step()
 
 
+#Now you want to be using a while loop when you don't really care what number in a sequence you're in, 
+#which item you're iterating through in a list and you just simply want to carry out some sort of functionality many, many times until some sort of condition that you set.
+
+#But for loops are really great when you want to iterate over something and you need to do something with each thing that you are iterating over. 
+#So for example, if you're iterating through a list and you're saying for each fruit in our list of fruits and you want to be able to say, do something with each of these items in here.
+# For instance, it can be as simple as just printing it. So for range from one to six print each number in the range.
+#
