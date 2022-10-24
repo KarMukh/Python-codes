@@ -1,0 +1,12 @@
+#Hurdles race
+#Reeborg has entered a hurdle race, but he does not know in advance how long the race is. 
+#Make him run the course, following a path similar to the one shown, but stopping at the only flag that will be shown after the race has started.
+#The functions move() and turn_left().
+#The condition at_goal() and its negation.
+#How to use a while loop.
+#Your program should also be valid for world Hurdles 1.
+#A robot located at (x, y) = (1, 1) carries no objects.
+#Goal to achieve: The final required position of the robot will be chosen at random.
+
+
+
