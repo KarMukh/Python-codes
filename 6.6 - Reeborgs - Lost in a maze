@@ -21,6 +21,12 @@ def turn_right():
     turn_left()
     turn_left()
     turn_left()
+while front_is_clear():
+    move()
+turn_left()
+
+# The description while front_is_clear() loop is below: the last group of comment.
+
 
 while not at_goal():
     if right_is_clear():
@@ -34,6 +40,14 @@ while not at_goal():
 #Now when our robot is able to go right, it will try to follow along the right wall.
 #But when it can't go right, it will go forwards instead.
 #And when it can't go right or go forward, then it's gonna turn left.
-        
+
+#But there are select cases where the robot might start out in a position and face a particular direction that gets the robot into an endless loop.
+#And what happens is because the robot doesn't have a wall on it's right, it's going to keep looping through the circle because after all we're telling it if your right side is clear, turn right and move.
+
+#The description while front_is_clear() loop:
+#So if we create another while loop before this while loop runs, so remember the code goes from top to bottom, it's going to hit this while loop first.
+#And we check while the front is clear, well then the robot is not next to a wall, right? 
+#Once it's hit a wall, so it's exited this while loop, we're going to tell it to turn left.
+
      
 
