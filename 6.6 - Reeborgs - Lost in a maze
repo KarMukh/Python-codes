@@ -1,0 +1,39 @@
+#https://reeborg.ca/reeborg.html?lang=en&mode=python&menu=worlds%2Fmenus%2Freeborg_intro_en.json&name=Maze&url=worlds%2Ftutorial_en%2Fmaze1.json
+#Lost in a maze
+#Write a program using an if/elif/else statement so Reeborg can find the exit. 
+#The secret is to have Reeborg follow along the right edge of the maze, turning right if it can, going straight ahead if it can’t turn right, or turning left as a last resort.
+#The functions move() and turn_left().
+#Either the test front_is_clear() or wall_in_front(), right_is_clear() or wall_on_right(), and at_goal().
+#How to use a while loop and if/elif/else statements.
+#It might be useful to know how to use the negation of a test (not in Python).
+
+#A robot located at (x, y) = (1, 5) carries no objects.
+#Goal to achieve: The final position of the robot must be (x, y) = (6, 4)
+
+#And the algorithm here is to simply follow along the right edge of the wall !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!. 
+#And if the right side is clear, then continue going right until it's no longer clear at which point it should just go straight. 
+#And if you can't go straight and you can't go right, then the last option is to turn left.
+#It's almost like the robot is getting a set of instructions in terms of hierarchy. 
+#The most important telling it to turn right if it can, if it can't turn right then go straight ahead. 
+#And finally, if it can't turn right or go straight ahead, then to turn left as a last resort.
+
+def turn_right():
+    turn_left()
+    turn_left()
+    turn_left()
+
+while not at_goal():
+    if right_is_clear():
+        turn_right()
+        move()
+    elif front_is_clear():
+        move()
+    else:
+        turn_left()
+
+#Now when our robot is able to go right, it will try to follow along the right wall.
+#But when it can't go right, it will go forwards instead.
+#And when it can't go right or go forward, then it's gonna turn left.
+        
+     
+
