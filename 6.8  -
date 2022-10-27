@@ -122,6 +122,9 @@ for position in range(word_lenght):
       display[position] = letter
 print(display)
 
+
+#And then once we've guessed a letter, then it will replace that letter at the correct position in that display list.
+
 ###Result could be:
 ###Pssst, the solution is baboon.
 ###['_', '_', '_', '_', '_', '_']
