@@ -20,7 +20,7 @@ for letter in chosen_word:
         print("Wrong")
 
 #################################################################
-#Step 2
+#Step 2 - initial version
 
 import random
 word_list = ["aardvark", "baboon", "camel"]
@@ -43,6 +43,91 @@ for letter in chosen_word:
         print("Right")
     else:
         print("Wrong")
+
+#TODO-3: - Print 'display' and you should see the guessed letter in the correct position and every other letter replace with "_".
+#Hint - Don't worry about getting the user to guess the next letter. We'll tackle that in step 3.
+
+
+
+###########################################################################
+#Step 2 - revised:
+
+
+import random
+word_list = ["aardvark", "baboon", "camel"]
+chosen_word = random.choice(word_list)
+
+#Testing code
+print(f'Pssst, the solution is {chosen_word}.')
+
+#TODO-1: - Create an empty List called display.
+#For each letter in the chosen_word, add a "_" to 'display'.
+#So if the chosen_word was "apple", display should be ["_", "_", "_", "_", "_"] with 5 "_" representing each letter to guess.
+
+display = []
+word_lenght = len(chosen_word)
+### First we need to create an empty list let say called display.
+###For each letter in the chosen word, we're going to add a underscore to this list.
+####The simplest way to use for loop:
+
+###for letter in chosen_word:
+  ###display += "_"
+  ####And for every single letter, we're just simply going to take our list, display, and add a item to it.
+  ####And that item is going to be the string, underscore.
+
+####Now notice how here we're not actually using this variable letter that gets created. 
+####We're looping through every letter in the chosen word, but we're not doing anything with each of the letters. 
+####So we can in fact just replace it with an underscore _:
+
+###for _ in chosen_word:
+  ###display += "_"
+
+
+####So now if we go ahead and print out our display and see what we get:
+#####Alternatively, we could have created this for loop with a range function as well.
+#####Range function creates a range of numbers from zero up to a particular number that we specify.
+
+for _ in range (len(chosen_word)):
+  display += "_"
+
+######So, as we can see in the line above, we could have also, instead of looping through the chosen word, use range and inside here, we could have put the length of the chosen word.
+#####So then our range would be between zero and the length of the chosen word.
+
+print (display)
+######Result could be for example:
+####Pssst, the solution is aardvark.
+######['_', '_', '_', '_', '_', '_', '_', '_']
+
+########So it doesn't actually matter in this case which version you went for, either this version of the for loop using the range function or the previous one which just looped through the list. It's your choice. They both worked the same.
+
+guess = input("Guess a letter: ").lower()
+
+#TODO-2: - Loop through each position in the chosen_word;
+#If the letter at that position matches 'guess' then reveal that letter in the display at that position.
+#e.g. If the user guessed "p" and the chosen word was "apple", then display should be ["_", "p", "p", "_", "_"].
+
+####We actually have to change this for loop to one that uses the range function because we need to get hold of the position when the letter and the guess actually matched.
+
+#So here I will mark for loop with ### to present the differance previous for loop and new one:
+
+###for letter in chosen_word:
+    ###if letter == guess:
+        ###print("Right")
+    ###else:
+        ###print("Wrong")
+
+for position in range(word_lenght):
+  letter = chosen_word[position]
+  if letter == guess:
+      display[position] = letter
+print(display)
+
+###Result could be:
+###Pssst, the solution is baboon.
+###['_', '_', '_', '_', '_', '_']
+###Guess a letter: a
+###['_', 'a', '_', '_', '_', '_']
+
 
 #TODO-3: - Print 'display' and you should see the guessed letter in the correct position and every other letter replace with "_".
 #Hint - Don't worry about getting the user to guess the next letter. We'll tackle that in step 3.
