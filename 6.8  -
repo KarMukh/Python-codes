@@ -132,5 +132,10 @@ print(display)
 ###['_', 'a', '_', '_', '_', '_']
 
 
+################
+#Here we haven't enabled the repeatability yet.
+#So we need our game to allow the user to guess the next letter and the next letter and keep going until they either die or they get to the solution.
+#############
+
 #TODO-3: - Print 'display' and you should see the guessed letter in the correct position and every other letter replace with "_".
 #Hint - Don't worry about getting the user to guess the next letter. We'll tackle that in step 3.
