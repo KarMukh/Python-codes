@@ -229,3 +229,238 @@ while not end_of_game:
     if "_" not in display:
         end_of_game = True
         print("You win.")
+        
+        
+
+
+
+#############################################
+#Step 4 - initial version
+
+import random
+
+stages = ['''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========
+''']
+
+end_of_game = False
+word_list = ["ardvark", "baboon", "camel"]
+chosen_word = random.choice(word_list)
+word_length = len(chosen_word)
+
+#TODO-1: - Create a variable called 'lives' to keep track of the number of lives left. 
+#Set 'lives' to equal 6.
+
+#Testing code
+print(f'Pssst, the solution is {chosen_word}.')
+
+#Create blanks
+display = []
+for _ in range(word_length):
+    display += "_"
+
+while not end_of_game:
+    guess = input("Guess a letter: ").lower()
+
+    #Check guessed letter
+    for position in range(word_length):
+        letter = chosen_word[position]
+        # print(f"Current position: {position}\n Current letter: {letter}\n Guessed letter: {guess}")
+        if letter == guess:
+            display[position] = letter
+
+    #TODO-2: - If guess is not a letter in the chosen_word,
+    #Then reduce 'lives' by 1. 
+    #If lives goes down to 0 then the game should stop and it should print "You lose."
+
+    #Join all the elements in the list and turn it into a String.
+    print(f"{' '.join(display)}")
+
+    #Check if user has got all letters.
+    if "_" not in display:
+        end_of_game = True
+        print("You win.")
+
+    #TODO-3: - print the ASCII art from 'stages' that corresponds to the current number of 'lives' the user has remaining.
+    
+    
+    
+    
+    
+    
+###########################################################################
+    #Step 4 - revised
+
+
+
+import random
+
+stages = ['''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========
+''']
+
+end_of_game = False
+word_list = ["ardvark", "baboon", "camel"]
+chosen_word = random.choice(word_list)
+word_length = len(chosen_word)
+
+#TODO-1: - Create a variable called 'lives' to keep track of the number of lives left. 
+#Set 'lives' to equal 6.
+lives = 6
+
+### Because our hungman contains 6 parts. See above.
+
+
+#Testing code
+print(f'Pssst, the solution is {chosen_word}.')
+
+#Create blanks
+display = []
+for _ in range(word_length):
+    display += "_"
+
+while not end_of_game:
+    guess = input("Guess a letter: ").lower()
+
+    #Check guessed letter
+    for position in range(word_length):
+        letter = chosen_word[position]
+       # print(f"Current position: {position}\n Current letter: {letter}\n Guessed letter: {guess}")
+        if letter == guess:
+            display[position] = letter
+
+    #TODO-2: - If guess is not a letter in the chosen_word,
+    #Then reduce 'lives' by 1. 
+    #If lives goes down to 0 then the game should stop and it should print "You lose."
+          
+    if guess not in chosen_word:
+        lives -= 1
+        if lives == 0:
+            end_of_game = True
+            print("You lose.")
+    ###### Here if the guessed letter does not exists in the chosen word then we're going to reduce the number of lives by one, so -= 1
+    ###### Now, if at this stage after we've taken a life away and the number of lives goes down to zero, well then the game should stop and it should print "You lose."
+    #### For this reason we add another if statement in here that checks whether if the number of lives is equals to, double equal to, zero. And if this is the case, then we should exit the game.
+    ###### And we need to remember to exit the game we need to exit the while loop. And the while loop is dependent on the variable end_of_game which starts out being false. And when we want to exit the game, when it is in fact the end of the game, we switch it to true. So here, when the lives is equal to zero, we can say, end_of_game = True, and we're going to print "You lose."
+          
+    #Join all the elements in the list and turn it into a String.
+    print(f"{' '.join(display)}")
+
+    #Check if user has got all letters.
+    if "_" not in display:
+        end_of_game = True
+        print("You win.")
+
+    #TODO-3: - print the ASCII art from 'stages' that corresponds to the current number of 'lives' the user has remaining.
+    print(stages[lives])
+
+    ########## We have to print the ASCII art from the list called stages that corresponds to the current number of lives the user has remaining.
+    ########### I've arranged each of these pictures in descending order of lives. So when you have a full six lives, the image at index six is the starting image.
+    ################And when you have no lives, so the image at index zero is the one where the hangman is fully drawn.
+    #####So all we have to do down here is to simply just the print the stages, and corresponding to the current number of lives.
