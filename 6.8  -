@@ -49,6 +49,9 @@ for letter in chosen_word:
 
 
 
+
+
+
 ###########################################################################
 #Step 2 - revised:
 
@@ -139,3 +142,90 @@ print(display)
 
 #TODO-3: - Print 'display' and you should see the guessed letter in the correct position and every other letter replace with "_".
 #Hint - Don't worry about getting the user to guess the next letter. We'll tackle that in step 3.
+
+
+
+
+
+
+
+###########################################################
+#Step 3 - initial version
+
+
+import random
+word_list = ["aardvark", "baboon", "camel"]
+chosen_word = random.choice(word_list)
+word_length = len(chosen_word)
+
+#Testing code
+print(f'Pssst, the solution is {chosen_word}.')
+
+#Create blanks
+display = []
+for _ in range(word_length):
+    display += "_"
+
+#TODO-1: - Use a while loop to let the user guess again. The loop should only stop once the user has guessed all the letters in the chosen_word and 'display' has no more blanks ("_"). Then you can tell the user they've won.
+
+guess = input("Guess a letter: ").lower()
+
+#Check guessed letter
+for position in range(word_length):
+    letter = chosen_word[position]
+    print(f"Current position: {position}\n Current letter: {letter}\n Guessed letter: {guess}")
+    if letter == guess:
+        display[position] = letter
+
+print(display)
+
+
+
+
+
+
+##################################################################
+#Step 3 - revised
+
+import random
+word_list = ["aardvark", "baboon", "camel"]
+chosen_word = random.choice(word_list)
+word_length = len(chosen_word)
+
+#Testing code
+print(f'Pssst, the solution is {chosen_word}.')
+
+#Create blanks
+display = []
+for _ in range(word_length):
+    display += "_"
+
+#TODO-1: - Use a while loop to let the user guess again. The loop should only stop once the user has guessed all the letters in the chosen_word and 'display' has no more blanks ("_"). Then you can tell the user they've won.
+
+###### First we can create a variable which we'll call end_of_game and set that to false to begin with because it's not yet the end of game. 
+
+
+end_of_game = False
+
+while not end_of_game:
+    guess = input("Guess a letter: ").lower()
+
+##### It means while it's not at the end of the game, then repeat this continuously.
+
+    #Check guessed letter
+    for position in range(word_length):
+        letter = chosen_word[position]
+        #print(f"Current position: {position}\n Current letter: {letter}\n Guessed letter: {guess}")
+        if letter == guess:
+            display[position] = letter
+
+    print(display)
+
+
+####When is it actually the end of the game? Well, it's when display has no more blanks.
+    #Check if there are no more "_" left in 'display'. Then all letters have been guessed.
+    ######The following basically allows us to check to see if a particular element exists inside a particular list.
+    
+    if "_" not in display:
+        end_of_game = True
+        print("You win.")
