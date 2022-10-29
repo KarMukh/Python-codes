@@ -1,7 +1,316 @@
+######First we create another file different our main coding file, with the name hangman_words.py
+
+###### Then we include a list called word_list wit a banch of words in that file as following:
+word_list = [
+'abruptly', 
+'absurd', 
+'abyss', 
+'affix', 
+'askew', 
+'avenue', 
+'awkward', 
+'axiom', 
+'azure', 
+'bagpipes', 
+'bandwagon', 
+'banjo', 
+'bayou', 
+'beekeeper', 
+'bikini', 
+'blitz', 
+'blizzard', 
+'boggle', 
+'bookworm', 
+'boxcar', 
+'boxful', 
+'buckaroo', 
+'buffalo', 
+'buffoon', 
+'buxom', 
+'buzzard', 
+'buzzing', 
+'buzzwords', 
+'caliph', 
+'cobweb', 
+'cockiness', 
+'croquet', 
+'crypt', 
+'curacao', 
+'cycle', 
+'daiquiri', 
+'dirndl', 
+'disavow', 
+'dizzying', 
+'duplex', 
+'dwarves', 
+'embezzle', 
+'equip', 
+'espionage', 
+'euouae', 
+'exodus', 
+'faking', 
+'fishhook', 
+'fixable', 
+'fjord', 
+'flapjack', 
+'flopping', 
+'fluffiness', 
+'flyby', 
+'foxglove', 
+'frazzled', 
+'frizzled', 
+'fuchsia', 
+'funny', 
+'gabby', 
+'galaxy', 
+'galvanize', 
+'gazebo', 
+'giaour', 
+'gizmo', 
+'glowworm', 
+'glyph', 
+'gnarly', 
+'gnostic', 
+'gossip', 
+'grogginess', 
+'haiku', 
+'haphazard', 
+'hyphen', 
+'iatrogenic', 
+'icebox', 
+'injury', 
+'ivory', 
+'ivy', 
+'jackpot', 
+'jaundice', 
+'jawbreaker', 
+'jaywalk', 
+'jazziest', 
+'jazzy', 
+'jelly', 
+'jigsaw', 
+'jinx', 
+'jiujitsu', 
+'jockey', 
+'jogging', 
+'joking', 
+'jovial', 
+'joyful', 
+'juicy', 
+'jukebox', 
+'jumbo', 
+'kayak', 
+'kazoo', 
+'keyhole', 
+'khaki', 
+'kilobyte', 
+'kiosk', 
+'kitsch', 
+'kiwifruit', 
+'klutz', 
+'knapsack', 
+'larynx', 
+'lengths', 
+'lucky', 
+'luxury', 
+'lymph', 
+'marquis', 
+'matrix', 
+'megahertz', 
+'microwave', 
+'mnemonic', 
+'mystify', 
+'naphtha', 
+'nightclub', 
+'nowadays', 
+'numbskull', 
+'nymph', 
+'onyx', 
+'ovary', 
+'oxidize', 
+'oxygen', 
+'pajama', 
+'peekaboo', 
+'phlegm', 
+'pixel', 
+'pizazz', 
+'pneumonia', 
+'polka', 
+'pshaw', 
+'psyche', 
+'puppy', 
+'puzzling', 
+'quartz', 
+'queue', 
+'quips', 
+'quixotic', 
+'quiz', 
+'quizzes', 
+'quorum', 
+'razzmatazz', 
+'rhubarb', 
+'rhythm', 
+'rickshaw', 
+'schnapps', 
+'scratch', 
+'shiv', 
+'snazzy', 
+'sphinx', 
+'spritz', 
+'squawk', 
+'staff', 
+'strength', 
+'strengths', 
+'stretch', 
+'stronghold', 
+'stymied', 
+'subway', 
+'swivel', 
+'syndrome', 
+'thriftless', 
+'thumbscrew', 
+'topaz', 
+'transcript', 
+'transgress', 
+'transplant', 
+'triphthong', 
+'twelfth', 
+'twelfths', 
+'unknown', 
+'unworthy', 
+'unzip', 
+'uptown', 
+'vaporize', 
+'vixen', 
+'vodka', 
+'voodoo', 
+'vortex', 
+'voyeurism', 
+'walkway', 
+'waltz', 
+'wave', 
+'wavy', 
+'waxy', 
+'wellspring', 
+'wheezy', 
+'whiskey', 
+'whizzing', 
+'whomever', 
+'wimpy', 
+'witchcraft', 
+'wizard', 
+'woozy', 
+'wristwatch', 
+'wyvern', 
+'xylophone', 
+'yachtsman', 
+'yippee', 
+'yoked', 
+'youthful', 
+'yummy', 
+'zephyr', 
+'zigzag', 
+'zigzagging', 
+'zilch', 
+'zipper', 
+'zodiac', 
+'zombie', 
+]
+
+
+
+
+###### Then we also create another file different our main coding file, with the name hangman_art.py
+###### And then include in that file a list called stages and a variable called logo as following:
+
+stages = ['''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========
+''']
+
+
+
+logo = ''' 
+ _                                             
+| |                                            
+| |__   __ _ _ __   __ _ _ __ ___   __ _ _ __  
+| '_ \ / _` | '_ \ / _` | '_ ` _ \ / _` | '_ \ 
+| | | | (_| | | | | (_| | | | | | | (_| | | | |
+|_| |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|
+                    __/ |                      
+                   |___/    '''
+
+                                                                    
+                                                                    
+
+##### Our code starts from here on the main coding file: main.py, where we can import lists (in this case stages and word_lists) or variables (in this case logo) from above mentioned hangman_words.py and hangman_art.py files.
+
+
+
+
 import random
 from hangman_art import stages, logo
 from hangman_words import word_list
+
 from replit import clear
+
+#### Here we also can tap into the replit module and you can import a function called clear.
+#### Once we've imported this clear function, then we can go ahead and add it just after the user has made their guess.
+### So we can call it just as you would any other function now that we've imported it into this file. 
+### And when we run the code now, we can see that after every guess, it's going to clear the screen.
+
 
 print(logo)
 game_is_finished = False
@@ -19,6 +328,7 @@ while not game_is_finished:
 
     #Use the clear() function imported from replit to clear the output between guesses.
     clear()
+    ########### The clear function, see the description above, when we imported it firsr time.
 
     if guess in display:
         print(f"You've already guessed {guess}")
