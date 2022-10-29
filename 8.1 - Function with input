@@ -18,3 +18,65 @@ def greet_with_name(name):
 greet_with_name("Karen")
 
 ### So this way we can create one function that carries out some instructions, but every time we execute it, it gets a modify it a little bit by changing the inputs.
+
+
+
+#############################################
+
+
+#Simple Function
+def greet():
+  print("Hello Angela")
+  print("How do you do Jack Bauer?")
+  print("Isn't the weather nice today?")
+greet()
+
+
+#### The result would be:
+# Hello Angela
+# How do you do Jack Bauer?
+# Isn't the weather nice today?
+
+#########################################
+
+#Function that allows for input
+#'name' is the parameter.
+#'Jack Bauer' is the argument.
+def greet_with_name(name):
+  print(f"Hello {name}")
+  print(f"How do you do {name}?")
+greet_with_name("Jack Bauer")
+
+### The result would be:
+# Hello Jack Bauer
+# How do you do Jack Bauer?
+
+
+################################################
+
+#Functions with more than 1 input
+def greet_with(name, location):
+  print(f"Hello {name}")
+  print(f"What is it like in {location}?")
+
+### The result would be:
+# Hello Jack Bauer
+# What is it like in Nowhere?
+
+#Calling greet_with() with Positional Arguments
+greet_with("Jack Bauer", "Nowhere")
+#vs.
+greet_with("Nowhere", "Jack Bauer")
+
+#### But when we switch around our arguments, then the result would be for the switched one:
+# Hello Nowhere
+# What is it like in Jack Bauer?
+
+
+#Calling greet_with() with Keyword Arguments
+greet_with(location="London", name="Angela")
+
+### But we can add the actual values for our parameters like we can see above name = "Angela" or location = "London".
+### And now when we switch around the parameters, the result always gonna be the right one:
+# Hello Angela
+# What is it like in London?
