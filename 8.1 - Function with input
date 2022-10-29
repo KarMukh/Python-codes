@@ -1,0 +1,20 @@
+# Review: 
+# Create a function called greet(). 
+# Write 3 print statements inside the function.
+# Call the greet() function and run your code.
+
+
+####But And then inside the parentheses, instead of leaving it blank, we get to create the name of the variable that's going to be passed over.
+####It's going to be the name of the person that I wish to greet.
+####
+
+def greet_with_name(name):
+  print(f"Hello {name}!")
+  print(f"How are {name}?")
+  print(f"See you {name}.")
+
+### Now we can call the function and instead of variable name put a value for it, in this case "Karen".
+
+greet_with_name("Karen")
+
+### So this way we can create one function that carries out some instructions, but every time we execute it, it gets a modify it a little bit by changing the inputs.
