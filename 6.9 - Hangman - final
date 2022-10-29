@@ -310,6 +310,7 @@ from replit import clear
 #### Once we've imported this clear function, then we can go ahead and add it just after the user has made their guess.
 ### So we can call it just as you would any other function now that we've imported it into this file. 
 ### And when we run the code now, we can see that after every guess, it's going to clear the screen.
+#### Now that means we don't have this backlog of previous guesses and we can actually see what's going on at each stage. 
 
 
 print(logo)
