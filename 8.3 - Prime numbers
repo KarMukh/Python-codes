@@ -43,3 +43,14 @@ prime_checker(number=n)
 ### In the last two lines on the first line we can see the number that we're going to be sending over and checking and on the second line we actually call this function and pass over the number.
 
 
+#######################################
+
+### Result on console, e.g.
+### Check this number: 83
+### It's a prime number.
+
+### or
+
+### Check this number: 77
+### It's not a prime number.
+
