@@ -1,0 +1,41 @@
+#Write your code below this line 👇
+### Prime number is a number that can only be cleanly divided by itself and 1.
+
+### We need to write a function that checks whether if the number passed into it is a prime number or not.
+### So that means that if it's divided by any other number other than 1 and intself, it will have a remainder.
+### For example, if we divide six by two, then it equals three with no remainder because six is divided into two three times, while seven divided by two equals one because there's a remainder of one, because two times three is six and then six plus one makes seven. 
+### 6 % 2 == 0
+### 7 % 2 == 1
+
+### Inputing a number it should show one of the following results:
+### It's a prime number.
+### It's not a prime number.
+
+### And it means we need basically divide the guessed number by all the possible values other than one and the number itself. Of course the values greater than the number itself should not be considered.
+
+#### In the code below using range function I tried to focus on the range of numbers which include values greater than 1 and number-1 but not including the number itself. In range function the last value (in this case the number) is not being considered.
+
+
+def prime_checker(number):
+  is_prime = True
+  for i in range(2, number):
+    if number % i == 0:
+      is_prime = False
+    ### If number divided by i is equal to zero, so if it divides cleanly, then in this case, it's clearly not a prime.
+    ### However, if we get to the very end of our for loop and this if statement was never triggered, then that means this is a prime number.
+
+  ### So how can we represent this with our code? Well, we could create a variable called is_prime and set it to true (see above, before the for loop). If this if statement (if number % i == 0) works, then we switch this is_prime to false (is_prime = False means it is not prime number). And finally, once we get to the end of the for loop, we can go ahead and check whether  is_prime true or is it false.
+  
+  if is_prime:
+    print("It's a prime number.")
+  else:
+    print("It's not a prime number.")
+
+    
+#Do NOT change any of the code below
+n = int(input("Check this number: "))
+prime_checker(number=n)
+
+### In the last two lines on the first line we can see the number that we're going to be sending over and checking and on the second line we actually call this function and pass over the number.
+
+
