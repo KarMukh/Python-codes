@@ -1,4 +1,3 @@
-#Write your code below this line 👇
 ### Prime number is a number that can only be cleanly divided by itself and 1.
 
 ### We need to write a function that checks whether if the number passed into it is a prime number or not.
@@ -32,7 +31,8 @@ def prime_checker(number):
     print("It's not a prime number.")
 
     
-#Do NOT change any of the code below
+#Do NOT change any of the code below:
+
 n = int(input("Check this number: "))
 prime_checker(number=n)
 
