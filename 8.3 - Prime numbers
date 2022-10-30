@@ -3,8 +3,12 @@
 ### We need to write a function that checks whether if the number passed into it is a prime number or not.
 ### So that means that if it's divided by any other number other than 1 and intself, it will have a remainder.
 ### For example, if we divide six by two, then it equals three with no remainder because six is divided into two three times, while seven divided by two equals one because there's a remainder of one, because two times three is six and then six plus one makes seven. 
-### 6 % 2 == 0
-### 7 % 2 == 1
+
+### We can use the modulus (%) to check what the remainder is of a division.
+### Examples: 
+### 6 % 2 == , because 6/2 == 3, and we have 0 reminder here.
+### 7 % 2 == 1, because 7/2 == 3, and here we have also 1 as a reminder.
+
 
 ### Inputing a number it should show one of the following results:
 ### It's a prime number.
