@@ -1,0 +1,37 @@
+###################################################################
+# #Sample - the task was as following:
+# #Write your code below this line 
+
+
+# #Write your code above this line 
+# # Define a function called paint_calc() so that the code below works.   
+
+# # Don't change the code below 
+# test_h = int(input("Height of wall: "))
+# test_w = int(input("Width of wall: "))
+# coverage = 5
+# paint_calc(height=test_h, width=test_w, cover=coverage)
+###################################################################
+
+#Write your code below this line 
+
+import math
+## See the description below why we imported math module.
+
+#First we need to create a function
+def paint_calc(height, width, cover):
+  area = height*width
+  num_of_cans = math.ceil(area/cover)
+  print(f"You will need {num_of_cans} cans of paint.")
+
+  ## As if this may be a decimal number we have two round it up to the next whole number.
+  ## How do you round up a number in Python?
+  ## We have to import maths, and from the math module (we need to import it before our def function if we want our function to be covered by it) and use a function called ceiling (ceil). And then inside the parentheses, we can put in the inputs. 
+
+## So now when the code on line 37 calls paint_calc passing in each of its arguments, then it's going to be able to run our def function and print out how many cans of paint we will need. 
+  
+# Define a function called paint_calc() so that the code below works.   
+test_h = int(input("Height of wall: "))
+test_w = int(input("Width of wall: "))
+coverage = 5
+paint_calc(height=test_h, width=test_w, cover=coverage)
