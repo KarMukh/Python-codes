@@ -8,3 +8,10 @@
 # Square brackets []
 # Curly brackets {}
 # Angle brackets <>
+
+
+
+## How do you round up a decimal number to the next whole number in Python?
+## We have to import maths, and from the math module (we need to import it before the function ) and use a function called ceiling (ceil). 
+## And then inside the parentheses, we can put in the inputs. 
+## e.g. next_whole_num = math.ceil(decimal_num)
