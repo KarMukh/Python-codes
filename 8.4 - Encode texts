@@ -32,6 +32,9 @@ def encrypt(plain_text, shift_amount):
   #### We can start above mentioned #TODO-2: by creating a for loop (of course indented to be under the def function) that loops every letter of a in the inputed original (plain) text. See below:
   
   cipher_text = ""
+  ### The discription of this empty string cipher text is shown below after the line cipher_text += new_letter
+
+  
   for letter in plain_text:
     position = alphabet.index(letter)
     #### And then we can take each of these letters (from the for loop) and work out its position in the alphabet list here.
