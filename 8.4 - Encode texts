@@ -1,0 +1,68 @@
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+#### To encrypt a word or sentance of course we need the alphabet with its order.
+#### Actually we have two alphabets here (duplicated), but the discribtion marked by *** we can find at the end of this code. 
+#### By the way, except encoding with a certain amount of movment (shifting) we can try to do it by changing the letters order, or even both with changing the letters order and then shifting them in that order.
+
+
+#### Now below we've also got three inputs which the users are going to type in.
+
+direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+#### They're gonna type in encode or decode, and that's gonna be saved to the direction.
+
+text = input("Type your message:\n").lower()
+#### Tey're going to type them message which is going to be changed to lower case and this is going to be saved in text.
+
+shift = int(input("Type the shift number:\n"))
+#### And the third one: they're going to input a shift number which is going to be converted to an integer and saved inside this variable called shift
+#Don't change the code above
+
+#TODO-1: Create a function called 'encrypt' that takes the 'text' and 'shift' as inputs.
+def encrypt(plain_text, shift_amount):
+  ####  Of course we can use the same word as the inputs above in this def function. But not to confuse us between the arguments and the parameters we can use here plain_text and shift_amount parameters.
+  #### Keeping the names of the argument and the parameter different will help us later on to see which one is which.
+  
+  #TODO-2: Inside the encrypt function, shift each letter of the text forwards in the alphabet by the shift amount and print the encrypted text.  
+  #e.g. 
+  #plain_text = "hello"
+  #shift = 5
+  #cipher_text = "mjqqt"
+  #print output: "The encoded text is mjqqt"
+
+  #### We can start above mentioned #TODO-2: by creating a for loop (of course indented to be under the def function) that loops every letter of a in the inputed original (plain) text. See below:
+  
+  cipher_text = ""
+  for letter in plain_text:
+    position = alphabet.index(letter)
+    #### And then we can take each of these letters (from the for loop) and work out its position in the alphabet list here.
+    #### And we can do that by using the index method.
+    #### So we can tap into a list (alphabet in our case), write .index, and then put in the value (letter in our case) that we want to get the index for and we should be able to get that as the result (position in our case). 
+
+    
+    new_position = position + shift_amount
+    #### Then we're going to calculate the new position. Now the new position is just going to be the previous position, which is going to be a number, and then plus the shift amount.
+
+
+#### So for a word e.g. starting with 'a' first time the loop runs letter's going to be equal to a, position is going to be equal to zero, and if shift amount let's say is equal to 5, then so new position in our list is gonna be 5, which is letter 'f' in this case.
+    
+    new_letter = alphabet[new_position]
+    ##### So to get hold of the value at that position, we can say that new_letter is equal to the alphabet at the new_position.
+    cipher_text += new_letter
+    #### And now once we've got this new_letter, we can create a empty string here which we'll call the ciphertext, which is going to be the encoded text. And it starts out being an empty string and then once we've gotten each of the new letters, we're going to add it to the cipher text. 
+    
+  print(f"The encoded text is {cipher_text}")
+
+#TODO-3: Call the encrypt function and pass in the user inputs. You should be able to test the code and encrypt a message. 
+encrypt(plain_text=text, shift_amount=shift)
+#### So here, we're going to call the encrypt function and we're going to pass in all of the user inputs.
+
+### So it remember that our parameter names are plain text and shift amount.
+### So I'm actually going to use the keyword arguments, so I'm going to say plain text is equal to the text that the user has typed in. And then on the next argument, I'm going to say the shift amount is equal to the shift that the user has typed in.
+
+
+### *** Now let's think of what's going to happen right? In our code, we're going to take each of the letters, we're going to take z first and then we're going to get its position in the alphabet and add the shift amount to the position to get the new position.
+#### *** We get an index error and it tells us that list index out of range, and it occurred on line ***.
+#### *** So we know that this has a fixed length and what we want to happen when we have a letter towards the end that we need to encode is to loop back to the beginning of the alphabet. So to solve this, all we have to do is just to copy the existing letters in the alphabet and then just duplicate it once more.
+
+
+### ### So now we've solved that small bug. Now there's a lot of other ways that we could have solved this bug, but this is the easiest way without disturbing our logic here and not making our function even longer.
