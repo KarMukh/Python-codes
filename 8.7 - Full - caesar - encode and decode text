@@ -1,20 +1,63 @@
 #### Here what we want to be able to do in this lesson is just to tidy up some of the loose ends, improve the user experience and fix some of the bugs that you may or may not be aware of. 
 ####TODO-1: Import and print the logo from art.py when the program starts. It is considered that our logo is perpared on anonther file with the name art.
 
+logo = """           
+ ,adPPYba, ,adPPYYba,  ,adPPYba, ,adPPYba, ,adPPYYba, 8b,dPPYba,  
+a8"     "" ""     `Y8 a8P_____88 I8[    "" ""     `Y8 88P'   "Y8  
+8b         ,adPPPPP88 8PP"""""""  `"Y8ba,  ,adPPPPP88 88          
+"8a,   ,aa 88,    ,88 "8b,   ,aa aa    ]8I 88,    ,88 88          
+ `"Ybbd8"' `"8bbdP"Y8  `"Ybbd8"' `"YbbdP"' `"8bbdP"Y8 88   
+            88             88                                 
+           ""             88                                 
+                          88                                 
+ ,adPPYba, 88 8b,dPPYba,  88,dPPYba,   ,adPPYba, 8b,dPPYba,  
+a8"     "" 88 88P'    "8a 88P'    "8a a8P_____88 88P'   "Y8  
+8b         88 88       d8 88       88 8PP""""""" 88          
+"8a,   ,aa 88 88b,   ,a8" 88       88 "8b,   ,aa 88          
+ `"Ybbd8"' 88 88`YbbdP"'  88       88  `"Ybbd8"' 88          
+              88                                             
+              88           
+"""
+
+
 #### TODO-2: is also very interesting. If the user enters a shift number that's actually really, really large like 100, then we're actually going to run out of letters in our alphabet, because we have 2 * 26 letters in our alphabet list.
 
 #####TODO-3: What happens if the user enters a number/symbol/space? So we want to preserve the symbols, space, or number that they typed in and we're only going to use our cipher on the rest of the message, so only the alphabetical letters. And everything else we're going to leave the same (the end_text will keep the spaces where they were, keep the numbers where they were).
 
 ### #TODO-4: we're going to figure out how to ask the user if they want to restart the cipher program?
-#e.g. Type 'yes' if you want to go again. Otherwise type 'no'.
+####e.g. Type 'yes' if you want to go again. Otherwise type 'no'.
 
+
+##########################################
+### Here starts our code:
 
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
+#### To encrypt a word or sentance of course we need the alphabet with its order.
+#### Actually we have two alphabets here (duplicated), but the discribtion marked by *** we can find at the end of this code. 
+#### By the way, except encoding with a certain amount of movment (shifting) we can try to do it by changing the letters order, or even both with changing the letters order and then shifting them in that order.
+
+### Here we create a function called 'caesar' that takes the text, shift and direction as inputs.
+#### First I'm going to call the first parameter start_text because we could be passed the plain_text or the cipher_text as it was in the previous one. The second parameter remains as it was, and the third parameter, in order to differentiate it from the direction used in our code, I'm gonna call cipher_direction. 
+
 def caesar(start_text, shift_amount, cipher_direction):
+
+  #### Then after a colon, we're done with defining our function and we can start figuring out how we can combine these two functions together: encrypt and decrypt functions. We know in both of them. 
+  ##### We need some sort of way of storing a piece of text which starts out as empty and then it ends up being the entire encrypted or decrypted text. So we can create a new variable called end_text (see below) to contrast with a start_text.
+  
   end_text = ""
+  
+  ### Then when we're encrypting text, we're shifting that position upwards by adding the shift amount. But on the other hand, when we're decrypting, we're subtracting the shift amount from the position.
+  #### So one way of doing this is, of course, by using an if statement. So you could check if the cipher_direction was equal to encode. Well then in this case, the new position is going to be equal to position plus the shift_amount. And then you could do the else statement.
+
+  #### The easier way of doing this is: we can just check for if the cipher direction was decode, in this case, we take the shift amount and we multiply it by minus one (see below).
+
   if cipher_direction == "decode":
     shift_amount *= -1
+          ### Same as shift_amount = shift_amount * -1
+          
+  ### We have to loop through this text that we get passed over. So let's create a for loop; for each character in the start_text, we're going to do something with each those chars. Namely, we're going to get hold of the position of the letter in the alphabet.
+  
   for char in start_text:
     #TODO-3: What happens if the user enters a number/symbol/space?
     #Can you fix the code to keep the number/symbol/space when the text is encoded/decoded?
@@ -28,13 +71,22 @@ def caesar(start_text, shift_amount, cipher_direction):
     
     if char in alphabet:
       position = alphabet.index(char)
+      #### And then we can take each of these characters (from the for loop) and work out its letter's position in the alphabet list above here.
+      #### And we can do that by using the index method.
+      #### So we can tap into a list (alphabet in our case), write .index, and then put in the value (letter in our case) that we want to get the index for and we should be able to get that as the result (position in our case).
+      
       new_position = position + shift_amount
+      ### Then we're going to calculate the new position. Now the new position is just going to be the previous position, which is going to be a number, and then plus the shift amount.
+      
       end_text += alphabet[new_position]
+          ### Now all we have to do is to tap into our end_text and to add to it by getting hold of the letter at the new position in the alphabet.
+          
     else:
       end_text += char
       ### Here we want to say: and if our char not inside the alphabet, so else, then, in this case, we actually want to make the end_text append the actual character, so without any modification.
       
   print(f"Here's the {cipher_direction}d result: {end_text}")
+      #### Here we can see how we can change the to be printed text to be dynamic, so depending on the cipher direction (instead of using print(f"The encoded text is {cipher_text}") or print(f"The decoded text is {plain_text}") we can use {cipther_directio}d as we remember when the user is typing in the direction, they're typing in either encode or decode, and the result will be encoded or decoded), and then the last part is easy because we can just replace it with the end_text.
 
 #TODO-1: Import and print the logo from art.py when the program starts.
 from art import logo
@@ -62,6 +114,8 @@ print(logo)
 should_end = False
 while not should_end:
 
+    #### Now below we've also got three inputs which the users are going to type in.
+    
   direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
   text = input("Type your message:\n").lower()
   shift = int(input("Type the shift number:\n"))
@@ -77,7 +131,8 @@ while not should_end:
   shift = shift % 26
 
   caesar(start_text=text, shift_amount=shift, cipher_direction=direction)
-
+      ### Here we can simply just call the Caesar function passing over the start_text as the text the user inputted, the shift_amount as the shift that they inputted, and finally, the cypher_direction as the direction that they inputted.
+  
   restart = input("Type 'yes' if you want to go again. Otherwise type 'no'.\n")
   if restart == "no":
     should_end = True
@@ -86,6 +141,8 @@ while not should_end:
   
   
 ##########################################################
+##########################################################
+
 ## The result on console gonna be e.g.
 
 ,adPPYba, ,adPPYYba,  ,adPPYba, ,adPPYba, ,adPPYYba, 8b,dPPYba,  
@@ -107,10 +164,10 @@ a8"     "" 88 88P'    "8a 88P'    "8a a8P_____88 88P'   "Y8
 Type 'encode' to encrypt, type 'decode' to decrypt:
 encode
 Type your message:
-hello
+hello **+
 Type the shift number:
 5
-Here's the encoded result: mjqqt
+Here's the encoded result: mjqqt **+
 Type 'yes' if you want to go again. Otherwise type 'no'.
 yes
 Type 'encode' to encrypt, type 'decode' to decrypt:
@@ -119,7 +176,7 @@ Type your message:
 mjqqt
 Type the shift number:
 5
-Here's the decoded result: hello
+Here's the decoded result: hello **+
 Type 'yes' if you want to go again. Otherwise type 'no'.
 no
 Goodbye
