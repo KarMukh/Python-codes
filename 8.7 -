@@ -1,0 +1,126 @@
+#### Here what we want to be able to do in this lesson is just to tidy up some of the loose ends, improve the user experience and fix some of the bugs that you may or may not be aware of. 
+####TODO-1: Import and print the logo from art.py when the program starts. It is considered that our logo is perpared on anonther file with the name art.
+
+#### TODO-2: is also very interesting. If the user enters a shift number that's actually really, really large like 100, then we're actually going to run out of letters in our alphabet, because we have 2 * 26 letters in our alphabet list.
+
+#####TODO-3: What happens if the user enters a number/symbol/space? So we want to preserve the symbols, space, or number that they typed in and we're only going to use our cipher on the rest of the message, so only the alphabetical letters. And everything else we're going to leave the same (the end_text will keep the spaces where they were, keep the numbers where they were).
+
+### #TODO-4: we're going to figure out how to ask the user if they want to restart the cipher program?
+#e.g. Type 'yes' if you want to go again. Otherwise type 'no'.
+
+
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+def caesar(start_text, shift_amount, cipher_direction):
+  end_text = ""
+  if cipher_direction == "decode":
+    shift_amount *= -1
+  for char in start_text:
+    #TODO-3: What happens if the user enters a number/symbol/space?
+    #Can you fix the code to keep the number/symbol/space when the text is encoded/decoded?
+    #e.g. start_text = "meet me at 3"
+    #end_text = "•••• •• •• 3"
+    
+    #### So here we want to be able to allow any number, symbol or space, basically anything that's not within the alphabet to go through and end up in the end_text. But if it is one of the letters inside this list alphabet, then and only then do we actually want to do the shifting and encoding. 
+    ###In order to achieve this, we should probably use an if statement.
+    ### So notice how I've changed the for loop to instead of writing: ### for letter in start_text ###which kind of assumes that everything in the start_text is a letter, to char which stands for character instead because a character could be a number, could be a symbol, could be a letter, could be space.
+    #### And then once we get hold of the char or the character, we're going to check to see if the char is in the alphabet. So if it is indeed one of these letters and not some other random character, well then and only then do we actually want this code to be executed.
+    
+    if char in alphabet:
+      position = alphabet.index(char)
+      new_position = position + shift_amount
+      end_text += alphabet[new_position]
+    else:
+      end_text += char
+      ### Here we want to say: and if our char not inside the alphabet, so else, then, in this case, we actually want to make the end_text append the actual character, so without any modification.
+      
+  print(f"Here's the {cipher_direction}d result: {end_text}")
+
+#TODO-1: Import and print the logo from art.py when the program starts.
+from art import logo
+print(logo)
+### And if we want to be able to use the logo variable inside the art file, this one, then we can also simply just write from art import logo.
+
+#TODO-4: Can you figure out a way to ask the user if they want to restart the cipher program?
+#e.g. Type 'yes' if you want to go again. Otherwise type 'no'.
+#If they type 'yes' then ask them for the direction/text/shift again and call the caesar() function again?
+#Hint: Try creating a while loop that continues to execute the program if the user types 'yes'.
+
+#### So at the moment, the part of our code that actually needs to be repeated if the user wanted to restart it is actually just 5 code lines: direction, text, shift = int..., shift = shift % 26 and caesar (see all of them below).
+### Here we can go ahead and indent this and put it inside a while loop.
+### What are we going to check to make sure that our loop continues?
+### Well, we could create a flag called should_continue and we start this out to be true.
+### And then while this is still true, we continue to keep looping through this so that the user gets to input a new direction, new text, new shift and call the Caesar cipher on that again.
+
+
+### When should we stop it though? Well, if at the end of deciphering or encoding their message, we ask them a question, something like type yes if you want to go again or type no if you don't want to, we could put that inside an input.
+
+###  And we can save their answer inside a variable called restart (see below).
+
+####So then we can use an if statement to check well, if the results is equal to no, so when they actually want to stop and they want to exit the while loop, well, at this point we can switch that should_continue to false. And once that's done, then this means that our while loop, when it checks it, this is going to be false and it will no longer continue. Just as a final touch, we can even tell the user goodbye so that they know that the program has ended.
+
+should_end = False
+while not should_end:
+
+  direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+  text = input("Type your message:\n").lower()
+  shift = int(input("Type the shift number:\n"))
+  
+  #TODO-2: What if the user enters a shift that is greater than the number of letters in the alphabet?
+  #Try running the program and entering a shift number of 45.
+  #Add some code so that the program continues to work even if the user enters a shift number greater than 26. 
+  #Hint: Think about how you can use the modulus (%).
+
+  #### What happens when we type a message and we put a shift that's really large (let say 83). We can see we get an index out of range error because there is no letter at position 83 from the alphabet.
+  ### Here using the modulus (%) we can get the reminder of smth. And that remainder allows us to shift the shift_number that's entered into something that fits in with the number of letters of the alphabet that we have in here.
+  ### So then our code that we would have below is to modify the shift by taking the shift that the user entered up here and then using the modulus to divide it by 26 as many times as needed until we get the remainder.
+  shift = shift % 26
+
+  caesar(start_text=text, shift_amount=shift, cipher_direction=direction)
+
+  restart = input("Type 'yes' if you want to go again. Otherwise type 'no'.\n")
+  if restart == "no":
+    should_end = True
+    print("Goodbye")
+  
+  
+  
+##########################################################
+## The result on console gonna be e.g.
+
+,adPPYba, ,adPPYYba,  ,adPPYba, ,adPPYba, ,adPPYYba, 8b,dPPYba,  
+a8"     "" ""     `Y8 a8P_____88 I8[    "" ""     `Y8 88P'   "Y8  
+8b         ,adPPPPP88 8PP"  `"Y8ba,  ,adPPPPP88 88          
+"8a,   ,aa 88,    ,88 "8b,   ,aa aa    ]8I 88,    ,88 88          
+ `"Ybbd8"' `"8bbdP"Y8  `"Ybbd8"' `"YbbdP"' `"8bbdP"Y8 88   
+            88             88                                 
+           ""             88                                 
+                          88                                 
+ ,adPPYba, 88 8b,dPPYba,  88,dPPYba,   ,adPPYba, 8b,dPPYba,  
+a8"     "" 88 88P'    "8a 88P'    "8a a8P_____88 88P'   "Y8  
+8b         88 88       d8 88       88 8PP" 88          
+"8a,   ,aa 88 88b,   ,a8" 88       88 "8b,   ,aa 88          
+ `"Ybbd8"' 88 88`YbbdP"'  88       88  `"Ybbd8"' 88          
+              88                                             
+              88           
+
+Type 'encode' to encrypt, type 'decode' to decrypt:
+encode
+Type your message:
+hello
+Type the shift number:
+5
+Here's the encoded result: mjqqt
+Type 'yes' if you want to go again. Otherwise type 'no'.
+yes
+Type 'encode' to encrypt, type 'decode' to decrypt:
+decode
+Type your message:
+mjqqt
+Type the shift number:
+5
+Here's the decoded result: hello
+Type 'yes' if you want to go again. Otherwise type 'no'.
+no
+Goodbye
+ 
