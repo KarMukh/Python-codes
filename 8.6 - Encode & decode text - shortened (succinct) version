@@ -1,0 +1,59 @@
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+### Comparing with the previous code in 8.5 - Encode & decode text, here we should combine the encrypt and decrypt functions into a single function called Cesar, and we're going to call it just once passing over text, shift, and direction.
+### We also should get rid of these if and elif statements, and we're going to get rid of two functions that are overlapping.
+### So it's going to have three inputs and it's going to save us a lot of repetition in our code.
+
+
+direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+text = input("Type your message:\n").lower()
+shift = int(input("Type the shift number:\n"))
+
+#TODO-1: Combine the encrypt() and decrypt() functions into a single function called caesar(). 
+
+def caesar(start_text, shift_amount, cipher_direction):
+  #### First I'm going to call the first parameter start_text because we could be passed the plain_text or the cipher_text as it was in the previous one. The second parameter remains as it was, and the third parameter, in order to differentiate it from the direction used in our code, I'm gonna call cipher_direction. 
+
+  #### Then after a colon, we're done with defining our function and we can start figuring out how we can combine these two functions together: encrypt and decrypt functions. We know in both of them. 
+
+  
+  end_text = ""
+      ##### We need some sort of way of storing a piece of text which starts out as empty and then it ends up being the entire encrypted or decrypted text. So we can create a new variable called end_text (see below) to contrast with a start_text.
+
+
+  ### Then when we're encrypting text, we're shifting that position upwards by adding the shift amount. But on the other hand, when we're decrypting, we're subtracting the shift amount from the position.
+  #### So one way of doing this is, of course, by using an if statement. So you could check if the cipher_direction was equal to encode. Well then in this case, the new position is going to be equal to position plus the shift_amount. And then you could do the else statement.
+
+  #### The easier way of doing this is: we can just check for if the cipher direction was decode, in this case, we take the shift amount and we multiply it by minus one (see below).
+
+  if cipher_direction == "decode":
+    shift_amount *= -1
+      ### Same as shift_amount = shift_amount * -1
+
+      ### If we put our if statement (where we check the cipher_direction and change the shift_amount by multiplying it by minus one)inside the for loop it will cause a bug in our code. And we know about for loops that it's going to keep going again and again. So for every letter in the start_text every single time, this code is going to get executed and the cipher direction is always decode so we keep multiplying that shift amount by minus one. So the first one becomes decode, the next one becomes encode, decode, encode, decode and so on. And that's why encoding let say hello plain_text shifted by 5, we will get the result mjqqt as a cipher_text but when we try decode the cipher_text with same 5 shift_ammont we will get holvo insted of hello.
+    #### So in order to fix this, all we have to do is take our if statement out of the for loop, put it before the for loop. 
+
+
+      
+  for letter in start_text:
+      ### We have to loop through this text that we get passed over. So let's create a for loop; for each letter in the start_text, we're going to do something with each those letters. Namely, we're going to get hold of the position of the letter in the alphabet.
+    
+    position = alphabet.index(letter)
+      #### And then we can take each of these letters (from the for loop) and work out its position in the alphabet list here.
+      #### And we can do that by using the index method.
+      #### So we can tap into a list (alphabet in our case), write .index, and then put in the value (letter in our case) that we want to get the index for and we should be able to get that as the result (position in our case).
+
+        
+    new_position = position + shift_amount
+        #### Then we're going to calculate the new position. Now the new position is just going to be the previous position, which is going to be a number, and then plus the shift amount.
+
+    
+    end_text += alphabet[new_position]
+    ### Now all we have to do is to tap into our end_text and to add to it by getting hold of the letter at the new position in the alphabet.
+    
+  print(f"Here's the {direction}d result: {end_text}")
+    #### Here we can see how we can change the to be printed text to be dynamic, so depending on the cipher direction (instead of using print(f"The encoded text is {cipher_text}") or print(f"The decoded text is {plain_text}") we can use {directio}d as we remember when the user is typing in the direction, they're typing in either encode or decode, and the result will be encoded or decoded), and then the last part is easy because we can just replace it with the end_text.
+
+#TODO-2: Call the caesar() function, passing over the 'text', 'shift' and 'direction' values.
+caesar(start_text=text, shift_amount=shift, cipher_direction=direction)
+  ### Here we can simply just call the Caesar function passing over the start_text as the text the user inputted, the shift_amount as the shift that they inputted, and finally, the cypher direction as the direction that they inputted
