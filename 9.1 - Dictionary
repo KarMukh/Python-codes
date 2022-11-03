@@ -1,0 +1,77 @@
+programming_dictionary = {"Bug": "An error in a program that prevents the program from running as expected.", "Function": "A piece of code that you can easily call over and over again."}
+
+#### The first thing we need to do to create a dictionary in Python is (what the syntax looks like): we have a set of curly braces and everything that's inside the curly brace is the content of our dictionary. The key goes first followed by a colon and then followed by the value (see above).
+#### What if you wanted to have more than one entry in your dictionary? Well, you would separate each of the key value pairs using a comma, and then you can continue adding key and value pairs until you get to the end of your dictionary.
+
+### When we create a dictionary that has more than one element we can start off the dictionary with the open curly brace at the top and then every subsequent entry is indented by one indent. And then at the very end of that entry, there's a comma and then we hit enter so that the next item goes onto the next line and finally, the last curly brace should go at the very beginning in line with the start of the dictionary (see below).
+### And another thing that's quite nice to do is to cap off all entries in your dictionary or list with a comma. This means that if you needed to add more items into the dictionary you can simply just hit enter and continue typing the next thing.
+
+programming_dictionary = {
+  "Bug": "An error in a program that prevents the program from running as expected.", 
+  "Function": "A piece of code that you can easily call over and over again.",
+  123: "It is a integer number."
+}
+
+print(programming_dictionary)
+### On the console we can see: {'Bug': 'An error in a program that prevents the program from running as expected.', 'Function': 'A piece of code that you can easily call over and over again.'}
+
+### !!!!! Dictionaries have elements which are identified by their key. If we want to retrieve only a piece of information, for example, then all we have to do is tap into the dictionary and then add a set of square brackets and inside the square brackets, we're going to provide the key and when we print this, then we can see that it is going to give us the value:
+
+print(programming_dictionary["Bug"])
+### On the console we can see: An error in a program that prevents the program from running as expected.
+
+### If we defined this dictionary without putting a string around each of these keys, then it's going to error out.
+### And so when we have a key that is a string, when we're trying to retrieve the data from that key, we also have to make sure that you provide the key in its actual data type.
+
+### So for example, if our key is just a number, say 123 then, of course, all we have to write in here is just 123 and it would know that this piece of data is what we wanted (see below, no "" in this case for key and for printing).
+
+print(programming_dictionary[123])
+### On the console we can see:It is a integer number.
+
+
+### What if we wanted to add a piece of data such as that loop that we had earlier on, but we want to do it programmatically.
+### All we have to do is to tap into the dictionary, which is called programming dictionary in our case and again, using square brackets, we define the key (in this case let's say loop). And then after a equal sign, we need to assign the value.
+
+programming_dictionary["Loop"] = "The action of doing something over and over again."
+
+### And when we print our dictionary we willl get the loop in it.
+print(programming_dictionary)
+
+### {'Bug': 'An error in a program that prevents the program from running as expected.', 'Function': 'A piece of code that you can easily call over and over again.', 123: 'It is a integer number.', 'Loop': 'The action of doing something over and over again.'}
+
+
+### We can also create an empty dictionary by simply creating a set of curly braces with nothing inside. And then at a later stage, we can add to our dictionary by using this method that we saw here.
+
+empty_dictionary = {}
+
+### Even if we have our programming_dictionary with 3 items in it above, when we put here:
+#   programming_dictionary = {}
+### Then after printing our programming_dictionary: print(programming_dictionary) we will get empty curly brackets {} as a result.
+### That can be really useful if we wanted to clear out a user's progress or for example, if a game restarts, then all the scores and stats will probably have to be wiped empty.
+
+### We can also use this to edit an item in a dictionary:
+
+programming_dictionary["Bug"] = "A moth in your computer."
+
+### After this if we go and print the programming dictionary once more, then we can see that the definition for our bug has now just been changed.
+
+### And the last one: to loop through a dictionary we can also use for loop
+
+for key in programming_dictionary:
+  print(key)
+  print(programming_dictionary[key])
+
+#### So now when we hit run, we can see it's giving us first the key from this line and then secondly the value based on this line. See below:
+
+# Bug
+  ### This is for print(key)
+# A moth in your computer.
+  ### This is for print(programming_dictionary[key]). And as we can see it takes new value we gave to our key on the line 54.
+#### And same is for others.
+# Function
+# A piece of code that you can easily call over and over again.
+# 123
+# It is a integer number.
+# Loop
+# The action of doing something over and over again.
+
