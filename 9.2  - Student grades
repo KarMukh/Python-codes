@@ -1,0 +1,41 @@
+student_scores = {
+  "Harry": 81,
+  "Ron": 78,
+  "Hermione": 99, 
+  "Draco": 74,
+  "Neville": 62,
+}
+# 🚨 Don't change the code above 👆
+
+#TODO-1: Create an empty dictionary called student_grades.
+student_grades = {}
+
+
+#TODO-2: Write your code below to add the grades to student_grades.👇
+for student in student_scores:
+  ### So if we go ahead and use the for loop and print it, you can see we get all of the keys from this dictionary when we're looping through it. ### Here our for loop will take keys: Harry, Ron, etc.
+  ### So for each of the students, we need to get hold of their score.
+  ### We can calculate the score by getting hold of the value using this key from this dictionary. 
+  ###And to do that, if you remember, is tapping in to the dictionary, adding a set of square brackets and then giving it the key. 
+  
+  score = student_scores[student]
+
+  #### And once we've got a hold of the score, well then we can use our if statement to check well if the score is greater than 90, so anything above 90, then that means they're going to end up with outstanding.
+  
+  if score > 90:
+    student_grades[student] = "Outstanding"
+    #### Now, this is the part where we add a new entry to this student_grades dictionary which was empty (see anove).
+  elif score > 80:
+    student_grades[student] = "Exceed Expectations"
+  elif score > 70:
+    student_grades[student] = "Acceptable"
+  else:
+    student_grades[student] = "Fail"
+    
+# 🚨 Don't change the code below 👇
+print(student_grades)
+
+
+
+
+
