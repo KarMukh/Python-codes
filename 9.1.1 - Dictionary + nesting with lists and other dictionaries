@@ -1,0 +1,86 @@
+##Python Dictionaries
+
+programming_dictionary = {
+  "Bug": "An error in a program that prevents the program from running as expected.", 
+  "Function": "A piece of code that you can easily call over and over again.",
+}
+
+#Retrieving items from dictionary.
+# print(programming_dictionary["Function"])
+
+#Adding new items to dictionary.
+programming_dictionary["Loop"] = "The action of doing something over and over again."
+
+#Create an empty dictionary.
+empty_dictionary = {}
+
+#Wipe an existing dictionary
+# programming_dictionary = {}
+# print(programming_dictionary)
+
+#Edit an item in a dictionary
+programming_dictionary["Bug"] = "A moth in your computer."
+# print(programming_dictionary)
+
+#Loop through a dictionary
+# for key in programming_dictionary:
+#   print(key)
+#   print(programming_dictionary[key])
+
+#######################################
+
+#Nesting 
+capitals = {
+  "France": "Paris",
+  "Germany": "Berlin",
+}
+
+#Nesting a List in a Dictionary
+
+travel_log = {
+  "France": ["Paris", "Lille", "Dijon"],
+  "Germany": ["Berlin", "Hamburg", "Stuttgart"],
+}
+
+#Nesting Dictionary in a Dictionary!!!!!!!!!!!!!!!!!!
+
+####### And instead of just storing the cities that I visited in each country, what if I wanted to also keep track of how many visits I've made to that country?
+######## Or what if I wanted to actually label what this piece of data is?
+
+### Here's the solution. By nesting a dictionary we can label the Paris, Lille and Dijon lists as cities visited.
+### All I need to do is create the string, "cities_visited" and add a colon after it. 
+#### !!!! But there's one more step. We have to add a pair of curly braces so that France is associated with a single value, namely our nested dictionary.
+### Now that we have a dictionary of the travel log, all the countries I've been to, and each country has a value that is a dictionary in itself and it can store multiple pieces of data including the cities I've visited in that country as well as things such as the total number of visits, which in this case would have a string as the key and a number of as the value. 
+
+travel_log = {
+  "France": {"cities_visited": ["Paris", "Lille", "Dijon"], "total_visits": 12},
+  "Germany": {"cities_visited": ["Berlin", "Hamburg", "Stuttgart"], "total_visits": 5},
+}
+
+### And so now our data structure is such that we've got a list nested inside a dictionary, which is in itself nested in another dictionary.
+
+
+#Nesting Dictionaries in Lists
+
+### ### Now that we've seen nesting lists inside dictionaries, dictionaries inside dictionaries.
+### One more thing is nesting a dictionary inside a list.
+### So we could basically have multiple dictionaries inside a single list. So remember that lists are ordered and they're accessed by the positions inside the list.
+### Whereas inside a dictionary, the items are accessed by their keys like this France or Germany.
+
+### But once we've got more and more key-value pairs in the dictionary, it's usually a good idea to go ahead and separate out each of the entries (dictionaries).
+  
+
+travel_log = [
+{
+  "country": "France", 
+  "cities_visited": ["Paris", "Lille", "Dijon"], 
+  "total_visits": 12,
+},
+{
+  "country": "Germany",
+  "cities_visited": ["Berlin", "Hamburg", "Stuttgart"],
+  "total_visits": 5,
+},
+]
+
+#### Now it's a little bit easier to see that we have a list which contains two items, and each item is a dictionary. Each dictionary has three key-value pairs and they all contain different types of data. The first one has a value which is a string, the second one holds a list and the third one holds a number. But what can't change is you still need a key and a value separated by a colon.
