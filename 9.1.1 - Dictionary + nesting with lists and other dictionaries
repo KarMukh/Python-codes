@@ -11,12 +11,6 @@ programming_dictionary = {
 #Adding new items to dictionary.
 programming_dictionary["Loop"] = "The action of doing something over and over again."
 
-#Create an empty dictionary.
-empty_dictionary = {}
-
-#Wipe an existing dictionary
-# programming_dictionary = {}
-# print(programming_dictionary)
 
 #Edit an item in a dictionary
 programming_dictionary["Bug"] = "A moth in your computer."
@@ -26,6 +20,14 @@ programming_dictionary["Bug"] = "A moth in your computer."
 # for key in programming_dictionary:
 #   print(key)
 #   print(programming_dictionary[key])
+
+
+#Wipe an existing dictionary
+# programming_dictionary = {}
+# print(programming_dictionary)
+
+#Create an empty dictionary.
+empty_dictionary = {}
 
 #######################################
 
