@@ -1,0 +1,43 @@
+travel_log = [
+{
+  "country": "France",
+  "visits": 12,
+  "cities": ["Paris", "Lille", "Dijon"]
+},
+{
+  "country": "Germany",
+  "visits": 5,
+  "cities": ["Berlin", "Hamburg", "Stuttgart"]
+},
+]
+#🚨 Do NOT change the code above
+
+#TODO: Write the function that will allow new countries
+#to be added to the travel_log. 👇
+
+
+### Instead of modifying our travel_log list directly we can create a function that should somehow go through this travel_log and add these new pieces of data.
+### So, because we've already defined the name of the function: add_new_country, in order for our code to actually work and for the tests to go through, we also have to create the function using exactly the same name:
+#### And then the inputs that it's going to take are the country_visited, the times_ visited, and finally the cities_visited.
+
+
+#### 
+def add_new_country(country_visited, times_visited, cities_visited):
+  new_country = {}
+  new_country["country"] = country_visited
+  new_country["visits"] = times_visited
+  new_country["cities"] = cities_visited
+  ### So the first thing we need to notice is each of the entries inside the travel_log is a dictionary.
+  ### In order to add to that list, we should probably start off by creating a new dictionary that has all of these pieces of data in it.
+  ### For example, we could create a new dictionary called new_country, which is an empty dictionary. And then we can add each of these pieces of data to the dictionary. So we could say new_country[] and then we give the key that we want to add. So in this case, it would be the key country as a string, and the data or the value that's going to go in that is going to be whatever gets passed into country_visited. So now all we have to do is repeat the process for the other keys in the dictionary. So visits is the next one, and that's going to be set equal to the times_visited. And finally, we're also going to populate the final key which is cities, and that is going to be equal to the cities_visited.
+  ### Now, at this point, if we print out new_country, we will see a dictionary with the three key-value pairs and the keys will always be the same, but the values will depend on which arguments were passed in when our above mentioned def function was called. 
+
+  ### So now, as we remember, to add a new item (in this case a dictionary) to a list, we should use append function (#append add a single item to the end of the changed list, and # extend is for extending the list adding to it another list). And that new item is, of course, going to be this dictionary called new_country.
+
+  travel_log.append(new_country)
+
+#🚨 Do not change the code below
+add_new_country("Russia", 2, ["Moscow", "Saint Petersburg"])
+print(travel_log)
+
+### So now if we go ahead and click run, then you can see when travel_log gets printed on now line 27, it's now got three entries. The first entry is the dictionary for France, the second is the dictionary for Germany, and the last one is the dictionary for Russia.
