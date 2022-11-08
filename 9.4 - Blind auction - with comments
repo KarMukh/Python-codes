@@ -1,0 +1,120 @@
+from replit import clear
+#HINT: You can call clear() to clear the output in the console.
+
+### So this function comes from the replit module and it allows us to clear the output in the console so that the previous name and bid gets cleared on off the screen and it leaves a fresh start for the next user.
+
+### To see the flow-chart visit following page:
+
+#https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&title=Blind%20Auction%20Flow%20Chart#R3VnbcpswEP0aPzYDCLB5tHNrZ9pMpu6kzaMMilEDiBHyLV%2FfFYirHMdp7JD4JUGrXV3Ont2V5AE6j9fXHKfhDxaQaGAZwXqALgaWZRqmAf%2BkZFNIHM8qBHNOA6VUC6b0iZSWSrqgAclaioKxSNC0LfRZkhBftGSYc7Zqqz2wqD1riudEE0x9HOnS3zQQoZK6jl13fCV0HpZTm65X9MS41FZbyUIcsFVDhC4H6JwzJoqveH1OIoleCUxhd%2FVMb7UyThKxj8Hs4R5fx%2BMlu%2F52dxPepdM7H31BxShLHC3UjtVixaaEgASAiGoyLkI2ZwmOLmvphLNFEhA5jQGtWuc7YykITRD%2BJUJslHvxQjAQhSKOVG8xp5zo2b0pUcYW3Cc7NlSSBPM5ETv0rMoDwF3CYiL4Buw4ibCgy%2FY6sCLRvNKrYYYPhfQrUDc11Ke%2Fxj9%2FadDXwEqUViEVZJrifP8riLdtIC4JF2S9G0Z928rAHimuqmi1VXNVU99TorBBemQcCSfn1Nhp7clOu092Wjo7Q0hclhEBcDKJchbn6VWcpZsPx1mvZ84OT42z9p6cdfvkrK2hPs4e84LP4e8NjokcIUkXon%2FCOk6LsKajM9a0t1DWPhZlvVOjrLsnZUd9UtbdSdkJ2FrGLaew0Y%2FG2OpI2xtjTf0E9ckp%2B1YqKtNbRmHmynOO1fYcGnU8UoSIsuo4pVrG%2F%2FtppHM8COqEjJOgojqsQB4usLwsUl9QcESOAKwUIjmU6o9kUxnlQ54NLBfHkvDJLEsrh%2FQZKmh41gmWLQcSc%2BjoweIcLVhGfcQGWVPxR5nL7%2FuG%2FGLd6LjYlI0EdpubAISqed%2Fsq83yVml3wCg00Z6VwxweIl7HnONNQyGVcZg9H872yGxxy%2B5e%2BTv6yHN26cNHsYKDxnwFdi90Mxt0Uzw6CcI1noz6eLDQ34mKwwp9KLIzz9N5%2FpfJ5kCu141gR5MZNNy5%2FFpkhMtsvgplpl%2FhnKp51p%2FJEtBN3SGLZ4usp7RdVcqX0na3oh4Oc%2F2AeE8yDSbYtGjjgSM6T%2BDbh82DJ9BEQkN9HI1VR0yDoIg6ktEnPMuHksRW%2BQfGdSYD50KOBYGWFTF3IKiRZ7dzkmFrQG87S1pHw9nrtTxWOeo1BbKVrerk9Q75arhnvnrrC9b2gmZ1HnvQcL%2Fz7GsLbbdwOvbuQttd12v1zeE7FGZTf5o6jwjm1fk68zkhiZ6I3%2FkMjZzOK%2FSWVLztSe9ot80y9TSAu6L5LaTALYQ1kEyUdQyuMlVX%2ByqT2wTEj4pKCSpx%2B4azokkii2fPHnCGL3vA9LYUQ%2FdoLrA0F9ywT18LXdTB2dBxRoephdCsf2osMkr9iy26%2FAc%3D
+
+
+from art import logo
+### Here we import the logo which is prepared on another file with the name art.
+print(logo)
+
+bids = {}
+### To add our name and our bidding price into a dictionary we should create an empty dictionary let say with the name bids {} before our inputs name and price (see above).
+### And then later on, once we've got the variables name and price, we said that the name was going to be the key and the price was going to be the corresponding value.
+
+#$#$#$ #$#$#$ #$#$#$ #$#$#$ #$#$#$ #$#$#$ #$#$#$ #$#$#$ #$#$#$ #$#$#$ 
+
+#$#$#$ name  = input("What is your name?")
+### So, next we gonna create a variable called name and we're going to set it to be an input.
+### And the input is going to say, what is your name?
+
+#$#$#$ price = input("What is your bid? $")
+### The next thing we're going to do is ask them for their bidding price. We'll say that inside a variable called price and we'll create another input to ask them what is your bid?
+
+### To add our name and our bidding price into a dictionary we should create an empty dictionary let say with the name bid {} before our inputs name and price (see above).
+### And then later on, once we've got the variables name and price, we said that the name was going to be the key and the price was going to be the corresponding value.
+
+#$#$#$ bids [name] = price
+### To add a new entry to our bids dictionary, we specify the dictionary, we add a set of square brackets, and then we add the key. The key is going to be the name and the value is going to be the price.
+
+#$#$#$ name, price and bids are marked as #$#$#$ comment because the describtion is below (they are used in while loop after creating them as new inputs).
+
+#$#$#$ #$#$#$ #$#$#$ #$#$#$ #$#$#$ #$#$#$ #$#$#$ #$#$#$ #$#$#$ #$#$#$ #$#$#$ 
+
+### Now, as we can see on pur flow-chart, we're going to ask if there are any other users who want to bid. And if the answer is yes, then we're going to clear the screen and we're going to loop back to where we ask for the next name and the next bid price.
+
+### To achive that we can put our name and price variables into a while loop with the bids[] adding items to our dictionary.
+### But first before our while loop we need to create new variable that would keep track whether if the bidding is finished.
+
+bidding_finished = False
+### And of course, it starts out being False, which means bidding is not finished.
+
+### When they answer no for the question 'if there are other users who want to bid', they get taken out of the while loop, but we still have to find the highest bidder from our dictionary and to declare them as the winner:
+### How do we do this? Well, let's put this in a separate function. So we could create a new function called find_highest_bidder and put it before our while loop.
+### And this is going to get the bidding_record as the inputs, so this will be the dictionary that represents all the bids, the names and the values.
+def find_highest_bidder(bidding_record):
+  ### So we know it's a dictionary of key-value pairs where each key is a name and each value is a number. We have to find the highest bidder from our dictionary and to declare them as the winner.
+  ### e.g. we have 3 bidders: {user_1: 27, user_2: 34, user_3: 19}
+  ### We need to somehow loop through this dictionary, which is called bidding_record.
+
+  #### We know that we can use a for loop to do this so we can say for each bidder in the bidding_record, and this is a good point to remember that when you use a for loop on a dictionary, instead of looping through each item in the dictionary, like each of these key-value pairs (e.g. user_1: 27), it actually loops through each of the keys (in this case user_1, user_2 and user_3). In other words we're going to get hold of each of the bidders inside this dictionary. We want to use the key to get the value.
+
+  highest_bid = 0
+  #### See description below in the comment: ### If we had some sort of way outside of the for loop....
+  
+  for bidder in bidding_record:
+    bid_amount = bidding_record[bidder]
+    if bid_amount > highest_bid:
+      ###@@@$$%%% Here greater sign is not supported between instances of a string and an int, se we need our price input turn into an integer below in our while loop. See below in while loop marked with this ###@@@$$%%%
+      
+      highest_bid = bid_amount
+      winner = bidder
+  print(f"The winner is {winner} with the bid of ${highest_bid}.")
+    ### Here we take the bidding_record and pass in the key, and this should give us the value. So now we can actually save this inside a variable which I'm going to call bid_amount. So the first time this for loop runs, the bid_amount is going to equal 27, second time this for loop runs, the bid_amount is going to equal 34 and the next third time the for loop runs, the bid amount is going to be equal to 19. See above our example:   ### e.g. we have 3 bidders: {user_1: 27, user_2: 34, user_3: 19}
+
+    ### If we had some sort of way outside of the for loop that keeps track of the highest bid, well then we could use this number to check against the current bidding amount. We can use an if statement to check well, if the bid amount is greater than the highest bid, well, in that case, then the highest bid becomes the bid amount.
+    #### So what this means is that we start out with a zero. The first time the for loop is run, the bidder is going to be equal to user_1, the bid amount is going to be equal to user_1 as the key passed into this dictionary, which is going to get us the value 27 from our example above. If 27 is greater than zero, well, then this highest bid is now going to become 27. The next time the for loop runs the bidder is now user_2 and the bid amount is now 34. Now we're checking if 321 is greater than the highest bid. Remember this, in the last round, got set to 27. So this is going to be true. And this means user_2's bid, 34, is now going to be the highest bid and so on.
+      ### In addition to keeping track of the highest bid, we can keep track of the winner. If this is indeed true, if the current bidder has the highest bid, well then at the same time as setting the highest bid, we should also set the winner to the key, so the current bidder.
+  ### And once we've gone through this for loop and we've looped through all of the records in the bidding record, well then finally we can actually print "The winner is..." the winner that's stored in this variable. And we're going to say they won with a bid of... and let's add a dollar sign and then we're going to pass in the highest_bid.
+
+
+###@@@$$$### So down here, when should_continue is no (see below marked with this ###@@@$$$###) going down this path, we can now print and declare the winner. In addition to saying that bidding finished is true, we're also going to call that function, find_highest_bidder, and pass in all of the bids that we have been keeping track of over herthe line bids [name] = price.
+
+while not bidding_finished:
+  name  = input("What is your name?: ")
+  price = int(input("What is your bid?: $"))
+  ###@@@$$%%% See describtion for int above in for loop marked with this ###@@@$$%%%
+  bids [name] = price
+### So basically while bidding_finished = False (bidding is not finished), then we're going to keep running this until forever.
+
+### But of course, we need a way to stop this. So we're going to create a new input where we ask the user, "are there any other bidders?" Type "yes" or "no". This way we get to get an input which is going to be either the word yes or the word no, and we can save this inside a variable called let say should_continue (in our while loop with its indentation). 
+  should_continue = input("Are there any bidders? Type 'yes or no'.\n")
+  if should_continue == "no":
+    bidding_finished = True
+    
+    ###@@@$$$###  See describtion above on the line marked with this ###@@@$$$### 
+    find_highest_bidder(bids)
+
+### So this way we can check this variable and we can see, well, if should_continue is equal to "no", well, in that case, that's when we're going to flip the switch and change this bidding_finished variable to true.
+#### So this means that when we get to the end of the block in the while loop, then when it checks the bidding_finished, it's not going to continue to loop anymore.
+
+
+#### On the other hand, if should_continue was yes or in fact any other value, then we can keep continuing and we don't actually have to change the 'bidding_finished = False' variable because it's already false.
+
+
+#### Now we have our code looping, which means that unless the user types in a 'no' at the very end and bidding becomes finished, this is this path. Otherwise then we're going to keep going through all of these lines of code which is basically all of this until we get to the point where this switch actually gets flipped.
+
+### So we can notice that if the user actually answers yes, then we want to clear the screen before we repeat the loop.
+### That means we can check to see well, elif should continue is equal to yes, in this case, we're going to call that clear() function that I showed in the hint at the very beginning.
+
+  elif should_continue == "yes":
+    clear()
+### So this function comes from the replit module and it allows us to clear the output in the console so that the previous name and bid gets cleared on off the screen and it leaves a fresh start for the next user.
+
+
+
+### The last hting is, when they answered no, they get taken out of the while loop, but we still have to find the highest bidder from our dictionary and to declare them as the winner:
+
+
+### How do we do this? Well, let's put this in a separate function. So we could create a new function called find_highest_bidder and put it before our while loop.
+### And this is going to get the bidding_record as the inputs, so this will be the dictionary that represents all the bids, the names and the values.
+
+#####**** !@!!! Essentially, the hardest part of this challenge is figuring out how to loop through a dictionary and get hold of each of the bidders and each of their values and compare them historically against previous values inside this dictionary.
+
+### https://pythontutor.com/
+### https://thonny.org/
+### Are helpful to visualize our code.
