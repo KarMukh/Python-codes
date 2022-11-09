@@ -1,0 +1,68 @@
+### The first type of function is a very simple bog-standard function using the def, the name, the empty parentheses, and then the colon. And then within the body of the function, you can do a bunch of things which will be carried out every single time you trigger or call the function like this. And the first type of function basically just helps you reduce the amount of code you have to write when you have instructions that you want to execute repeatedly. 
+# def function():
+#   First do this
+#   Then do that
+#   Finally do this
+
+
+### The next type of function actually had something inside the parentheses and this something is an input which can be passed over when we call the function (get used within the body of the function). 
+
+# def function(something):
+#   Do this with something
+#   Then do that
+#   Finally do this
+
+
+
+### The second type of function, the functions which allow for inputs, gives us the ability to modify the code in the function and to get it to do something different each time depending on what input was passed in.
+
+### The final sort of flavor functions and these are functions which allow you to have an output once the function is completed. And within the body of the function, I'm going to do some piece of calculation. Let's say I'm going to calculate what is three times two, and then save it to a variable called result. 
+
+# def function():
+#   result = 3*2
+#   return result
+  
+### Let's say I'm going to calculate what is three times two, and then save it to a variable called result. Now, once that's done, I can use the output keyword, which is return. And then after that keyword, I can put whatever it is I want to be the output of this function. So in this case, the output is the result.
+
+### And what that means is when I call this function later on and it runs, then it will go ahead and output this result and it replaces this line of code where this function was called. Now that result is held in the code where the function was called and I could save it to another variable. Result, of course, equals 3 * 2 and that means this output now equal 6.
+
+### output = function()
+
+# Let's create functions with outputs:
+# This function is going to take a first name and a last name, and it's going to change those inputs, even if it was lowercase or if it was all caps, it's going to change it into title case, something like where the first letter is capitalized in each word. 
+
+def format_name(f_name, l_name):
+
+### So all we have to do to add inputs to our function is just to put the names of these parameters inside the parentheses. So now our function is able to take these parameters as inputs whenever this function gets called.
+
+### The next step is we're going to convert these strings that gets passed in where the first letter is capitalized in each word and the rest is lower case. In this case we can use .title() function:
+  
+  f_name.title()
+  l_name.title()
+  print(f_name.title())
+  print(l_name.title())
+format_name("GABriel", "ALEX")
+
+## The result on console gonna be: Gabriel, Alex
+
+### We might have spotted already that this title function actually has an output. It returns a version of the string where each word is title cased. Instead of simply just printing this, we can also capture it inside a variable.
+
+def format_name_1(first_name, last_name):
+  formatted_firts_name = first_name.title()
+  formatted_last_name = last_name.title()
+  return f"{formatted_firts_name} {formatted_last_name}"
+ 
+formated_string = format_name_1("JOHn", "WHITE")
+print(formated_string)
+
+### Or
+print(format_name_1("JOHn", "WHITE"))
+
+### The result on console for 2 functions format_name and  format_name_1 gonna be:
+# Gabriel
+# Alex
+# John White
+# John White
+
+
+
