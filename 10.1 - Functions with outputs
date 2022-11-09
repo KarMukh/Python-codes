@@ -51,6 +51,9 @@ def format_name_1(first_name, last_name):
   formatted_firts_name = first_name.title()
   formatted_last_name = last_name.title()
   return f"{formatted_firts_name} {formatted_last_name}"
+  
+  #### So this return keyword is really the most important thing in order to create a function that has an output, because everything that comes after it is going to replace where the function was called
+
  
 formated_string = format_name_1("JOHn", "WHITE")
 print(formated_string)
@@ -66,3 +69,4 @@ print(format_name_1("JOHn", "WHITE"))
 
 #### Functions with outputs ---- For example, the Len function takes an input and has an output. The input is going to be a string, e.g. smb's name. So now this line of code is going to run this built in len function, calculating the number of letters inside this input that we've given it. And then it's going to return the result as an output, which we can now capture inside a variable.
 
+### output = len("John")
