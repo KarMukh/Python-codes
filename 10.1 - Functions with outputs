@@ -64,5 +64,5 @@ print(format_name_1("JOHn", "WHITE"))
 # John White
 # John White
 
-
+#### Functions with outputs ---- For example, the Len function takes an input and has an output. The input is going to be a string, e.g. smb's name. So now this line of code is going to run this built in len function, calculating the number of letters inside this input that we've given it. And then it's going to return the result as an output, which we can now capture inside a variable.
 
