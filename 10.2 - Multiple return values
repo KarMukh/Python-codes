@@ -1,0 +1,46 @@
+#Functions with Outputs
+
+#### Wrong code:---------------------------- just fro describtions.
+
+#### What happens when a function has more than one return statement?
+#### When the computer encounters a line that has the word return on it, then it knows that this line is the end of the function. If we add a line of code after the return keyword (let say print smth), and when we run our code the print function doesn't ever get executed. And this has because the return tells the computer that this is the end of the function and you should now exit the function.
+
+### But we can actually have multiple return keywords within the same function, and we can even have a empty return keyword.
+
+
+def format_name(f_name, l_name):
+    if f_name == "" or l_name == "":
+        return "You didn't provide valid inputs."
+        ### It's possible that we might have just not given it a first name or not given it a last name and it probably shouldn't go through these lines of code under our def function. But at the moment, it's still running this function trying to get the title case from the empty string and then printing it. So again, it will go empty first name, empty, last name, and then it's print result and then of course nothing. How can we get it to bypass the rest of the code if the user typed in an empty first name or last name? Well, we could use an early return. So we could just write return without anything afterwards and this is going to escape the function. So it's basically going to terminate the function early. See the example below:
+# def format_name(f_name, l_name):
+#   if f_name == "" or l_name == "":
+#     return
+
+### Now this time, if I leave an empty first name and last name, after running the code we will see "You didn't provide valid inputs.". So this way we can catch the cases when something is not quite right and then exit our function instead of wasting time for it to continue working on something that we don't want it to do. So it's basically going to terminate the function early.
+
+    formated_f_name = f_name.title()
+    formated_l_name = l_name.title()
+    f"Result: {formated_f_name} {formated_l_name}"
+
+
+#Storing output in a variable
+formatted_name = format_name(input("Your first name: "), input("Your last name: "))
+print(formatted_name)
+#or printing output directly
+print(format_name(input("What is your first name? "), input("What is your last name? ")))
+#### For example, let's say that instead of just calling the function as it is, we actually used the input function. So what is your first name and what is your last name?
+### Now what happens is it'll ask us for a input and it will take these two inputs (e.g. we print in the console joHN and WHITE) and then call that function and return the formatted version to be printed (like: John White).
+
+#Already used functions with outputs.
+length = len(formatted_name)
+
+
+#Return as an early exit
+def format_name(f_name, l_name):
+    """Take a first and last name and format it 
+  to return the title case version of the name."""
+    if f_name == "" or l_name == "":
+        return "You didn't provide valid inputs."
+    formated_f_name = f_name.title()
+    formated_l_name = l_name.title()
+    return f"Result: {formated_f_name} {formated_l_name}"
