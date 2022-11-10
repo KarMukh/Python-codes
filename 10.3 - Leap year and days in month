@@ -1,0 +1,87 @@
+### The following is_leap year exercise is copied from 3.4 - Leap year page, the lesson is on day 3, 3.3 
+
+# if year % 4 == 0:
+#     if year % 100 == 0:
+#       if year % 400 == 0:
+#         print("Leap year.")
+#       else:
+#         print("Not leap year.")
+#     else:
+#       print("Leap year.")
+#   else:
+#     print("Not leap year.")
+
+
+### in the primary code for this exercise was also following function:
+# def days_in_month(year, month):
+#   month_days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+####$$$$$$$$$$$-----------------------------------
+
+# A normal year has 365 days, leap years have 366, with an extra day in February.
+
+# This is how you work out whether if a particular year is a leap year:
+# on every year that is evenly divisible by 4 
+# **except** every year that is evenly divisible by 100 
+# **unless** the year is also evenly divisible by 400
+
+# e.g. The year 2000: 2000 ÷ 4 = 500 (Leap), 2000 ÷ 100 = 20 (Not Leap), 2000 ÷ 400 = 5 (Leap!)
+# So the year 2000 is a leap year.
+# But the year 2100 is not a leap year because: 2100 ÷ 4 = 525 (Leap), 2100 ÷ 100 = 21 (Not Leap), 2100 ÷ 400 = 5.25 (Not Leap)
+
+####$$$$$$$$$$$-----------------------------------
+
+
+### Now, the first thing we need to do is to modify the function so that instead of printing leap year or not leap year, we're actually just going to return true if it is a leap year and false if it is not a leap year, because we're going to be using that function in the next function below that we're going to modify: days_in_month(), which is a function that's going to tell you how many days there are in the month that we specify.
+
+def is_leap(year):
+  if year % 4 == 0:
+    if year % 100 == 0:
+      if year % 400 == 0:
+        return True
+      else:
+        return False
+    else:
+      return True
+  else:
+    return False
+
+### We're going to combine the output from def is_leap(year) function as well as the list of days_in_month in order to modify def days_in_month() function to output the number of days in a month when the line of code days = days_in_month(year, month) is called.
+
+def days_in_month(year, month):
+  if year < 1 or month > 12 or month < 1:
+    return "Invalid year or month."
+    ### And this way it ensures that our function doesn't progress unless we have clean data.
+    
+  month_days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]  
+  if is_leap(year) and month == 2:
+    return 29
+  return month_days[month - 1]
+    #### So instead of using true or false, or if a three is bigger than two, we're going to use the function, is_leap, and pass in the year that we got as an input. So if the is_leap year is true and the month is equal to 2, well, in that case, then we're going to return 29 because there's 29 days in February in a leap year.
+    ### But if this is not the case, then it's going to bypass this line of code and we can output the number of days in a month for any other condition, so when it's not a leap year. We can go ahead and simply just use the return statement to tap into that list called month_days and we're gonna pull out the value at the current month that's being requested.
+  ### But remember that because lists start counting from zero and the month that the user's going to be interested in doesn't start from zero, so if they're interested in January then this month, instead of being 1, should actually be 0 to pull out this 31.
+  ### So then we actually have to subtract one from it.
+
+    
+  ### days_in_month() is a function that's going to tell you how many days there are in the month that we specify.
+  ### So for example, if I was to call days_in_month and passing in the year as 2022 in the month as 2, then I should get an output of 28, as in there's 28 days in February, 2022.
+  ### We need to to modify this function and add more lines of code in it.
+
+  ### So the first thing we are going to do is we need to to change each of print statements so that it returns a Boolean instead (see above). So we can now use that inside our function days_in_month. We need to know what is the year and what is the month the user is interested in. 
+  
+#🚨 Do NOT change any of the code below 
+year = int(input("Enter a year: "))
+month = int(input("Enter a month: "))
+days = days_in_month(year, month)
+print(days)
+
+
+
+#### Why return at all? Why not just simply print the outputs instead, because this way it seems to end up doing the same thing, right? More about that in the next file.
+
+
+
+
+
+
+
+
