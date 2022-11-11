@@ -1,0 +1,67 @@
+### Add
+def add(n1, n2):
+  return n1 + n2
+
+### Subtract
+def subtract(n1, n2):
+  return n1 - n2
+
+### Motliply
+def multiply(n1, n2):
+  return n1 * n2
+
+### Divide
+def divide(n1, n2):
+  return n1 / n2
+
+
+### Create a dictionary where the keys are each of these symbols that we've used to add or subtract or multiply, and the values are just the names of the functions.
+
+operations = {
+  "+": add,
+  "-": subtract,
+  "*": multiply,
+  "/": divide
+}
+
+function = operations["*"]  
+function(2, 3)
+
+### Now this dictionary is going to act as the means in which we're going to call these functions. At some point down here, we want to be able to tap into the operations and then pass in the key that we want, so for example multiply, and then store this as the function that we want. That means we can then call this function and then pass in one number and a second number and this function is currently going to act as the multiply function. The second number num2 is better to move after the line 
+
+num1 = int(input("What's the first number?: "))
+
+####$$$&&& num2 = int(input("What's the second number?: "))
+####$$$&&& Now, I think in reality that it actually makes more sense to put num2 after the user's enter the operation symbol.
+
+### Go ahead and try to use a for loop to loop through this dictionary of operations and print out each of these symbols.
+
+for symbol in operations:
+  print(symbol)
+
+operation_symbol = input("Pick an operation from the line above: ")
+
+### So now we're ready to go ahead and ask them for a operation symbol. Pick and operation from the line above. And that symbol is now going to be saved within operation_symbol variable.
+###  For example, if in this case the user chose the plus symbol, then we're gonna pick out the add function and add our two numbers together. But of course, if they picked a different symbol then we want to be able to carry out the different operation. 
+
+
+num2 = int(input("What's the second number?: "))
+####$$$&&& Now, I think in reality that it actually makes more sense to put num2 after the user's enter the operation symbol so that you actually end up with a better user experience.
+
+###  See if you can get this calculator to work so we can print out the num1 and then the operation symbol, and then num2, and finally the equal sign and then the answer. 
+calculation_function = operations[operation_symbol]
+
+###$$$%%%%$$$$##@@ See some describtion several lines after:
+
+####So we're going to tap into our dictionary of operations here, and then we're going to use the square brackets to pass in the operation symbol.
+
+#### Now we can use this calculation function as if it were any of these functions. And that's of course, based on the choice the user made here. So we can now say calculation function and we can pass in the num1 as the first input, num2 as the second input. And of course our function all have a return value. So we can now save that inside a variable called answer:
+
+answer = calculation_function(num1, num2)
+
+
+print(f"{num1} {operation_symbol} {num2} = {answer}")
+
+#### See if you can get this calculator to work so we can print out the num1 and then the operation symbol, and then num2, and finally the equal sign and then the answer. See if you can make this line of code work and make sure that it works whenever you choose any of these operations, and it will calculate it using these numbers that you input.
+
+###$$$%%%%$$$$##@@ The first thing we need to do is to get hold of the calculation function and this is going to be done using the operation symbol. See above on its line:
