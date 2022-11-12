@@ -1,0 +1,81 @@
+### Debuging solution
+### difference between printing something to the console versus returning something as an output from a function
+
+#Calculator
+def add(n1, n2):
+  return n1 + n2
+
+def subtract(n1, n2):
+  return n1 - n2
+
+def multiply(n1, n2):
+  return n1 * n2
+
+def divide(n1, n2):
+  return n1 / n2
+
+operations = {
+  "+": add,
+  "-": subtract,
+  "*": multiply,
+  "/": divide
+}
+
+num1 = int(input("What's the first number?: "))
+for symbol in operations:
+  print(symbol)
+
+
+
+#Here we select "+"
+operation_symbol = input("Pick an operation: ") 
+num2 = int(input("What's the next number?: "))
+calculation_function = operations[operation_symbol]
+
+### To see the differance between print and return functions:
+  ### What if we wanted to take the output that comes from calling this function and instead of just storing it inside a variable and then printing it out (like it is on the next two lines: answer = calculation_function(num1, num2) and print(f"{num1} {operation_symbol} {num2} = {answer}"), what if we want to pass it as an input to another function? See below:
+### answer = calculation_function(num1, num2)
+### print(f"{num1} {operation_symbol} {num2} = {answer}"
+
+
+first_answer = calculation_function(num1, num2)
+
+print(f"{num1} {operation_symbol} {num2} = {first_answer}")
+
+#### Let's say that at this point we decided, you know what, we're going to ask them to pick another operation. 
+
+ 
+#Here we select "*" which overides the "+" we selected on line 26.
+operation_symbol = input("Pick an operation: ") 
+num3 = int(input("What's the next number?: "))
+### And then let's ask them to pick another number.
+
+#Here the calculation_function selected will be the multiply() function
+calculation_function = operations[operation_symbol] 
+### And finally, let's go ahead and get the calculation function again based on this new operation symbol that they picked.
+### And then we're going to calculate the new answer but this time, instead of passing over the calculation function, we're going to pass over the answer that we got back from this step.
+
+#Here the code will be:
+#second_answer = multiply(multiply(num1, num2), num3)
+second_answer = calculation_function(calculation_function(num1, num2), num3)
+#second_answer = 2 * 3 * 3 = 18 !!!!!!!
+#### So num1 is now the previous answer and the second number that's going to be the input is going to be num3.
+### At this point, when we're calling this calculation function, we're passing over the results or outputs of this calculation function, and that is going in right here, and then the third number goes in as the second input.
+### What basically has happened here is I've taken the output from previous answer function, so in fact, I could replace this answer with this output, and I've taken that as the first input into the calculation function and then num3 as the second input and then using all of this in order to get the answer.
+
+#### Let's call them first_answer, and let's call this second_answer just to differentiate the two answers.
+#To fix this bug we need to change the code on line 60 from this: second_answer = calculation_function(calculation_function(num1, num2), num3) to following:
+second_answer = calculation_function(first_answer, num3)
+#In the next lesson, we will delete all the code from line 34-48 so don't worry
+#It won't affect your final project.
+#But it's a good oportunity to practice debugging. 🐞
+
+### Without fixing that if we take 2 + 3 it will be 5, and then if we take another * symbol and num3 as 3, then the result gonna be 18, instead of 15.
+
+### And now I'm going to write a slightly different print statement. In this case, the calculation is done using the first_answer and then the operation symbol and then the num3 that was inserted above in order to obtain the second_answer.
+print(f"{first_answer} {operation_symbol} {num3} = {second_answer}")
+
+
+### In this case, what I'm able to do because I have an output from my calculation function from the very top of this code because each of these all return their answer, I'm able to take the result from that calculation and plug it right back into another calculation function using the result of that function call as the input to another function call.
+#### And I'm only able to do this because I'm using the return statement and because I have outputs from my functions.
+### This would not be possible if I was using a print statement.
