@@ -1,0 +1,142 @@
+### Debuging solution
+### difference between printing something to the console versus returning something as an output from a function
+
+####10while### In the last lesson we made it possible to reuse the result of the first calculation.
+
+####10while### On the last file we managed to write our code so that the answer for the first calculation became our input for the next calculation, allowing us to chain the calculations together. However, this created quite a bit of repetition in our code and it limits our user to just two calculations. Let's allow the user to chain as many calculations as they want to.
+
+####10while###@@@@ Se we can use a while loop and the input function to achieve this. Ask the user this question, type 'y' to continue calculating with the previous result or type 'n' to exit (start a new calculation in this case). If the user types y then your calculator should allow them to continue chaining together calculations with the previous answer. If they type anything else the program should exit (start a new calculation in this case) for now.
+
+
+#Calculator
+def add(n1, n2):
+  return n1 + n2
+
+def subtract(n1, n2):
+  return n1 - n2
+
+def multiply(n1, n2):
+  return n1 * n2
+
+def divide(n1, n2):
+  return n1 / n2
+
+operations = {
+  "+": add,
+  "-": subtract,
+  "*": multiply,
+  "/": divide
+}
+
+def calculator():
+  ####10while###@@@@ ####10while###@@@@ See the decribtion for def function   on the end of the code:
+
+  num1 = int(input("What's the first number?: "))
+  for symbol in operations:
+    print(symbol)
+  
+  should_continue = True
+  
+  ####10while###@@@@ So the easiest way to solve this is through the use of a while loop (see the task on the top comments).
+  ####10while###@@@@ So let's say that after we've asked for the first number and we've shown them all of the different symbols that they could possibly pick from, lets set a flag called should_continue. And we'll set that to start out as true.
+  
+  ####10while###@@@@ Then we can create a while loop and while it should continue as true, then we're going to indent our code under the while loop:
+  
+  while should_continue:
+    #Here we select "+"
+    operation_symbol = input("Pick an operation: ") 
+    num2 = int(input("What's the next number?: "))
+    calculation_function = operations[operation_symbol]
+    
+    ### To see the differance between print and return functions:
+      ### What if we wanted to take the output that comes from calling this function and instead of just storing it inside a variable and then printing it out (like it is on the next two lines: answer = calculation_function(num1, num2) and print(f"{num1} {operation_symbol} {num2} = {answer}"), what if we want to pass it as an input to another function? See below:
+    ### answer = calculation_function(num1, num2)
+    ### print(f"{num1} {operation_symbol} {num2} = {answer}"
+    
+    ####10while###@@@@ So now we have a first number, we have a operation, we have a second number and then we pick out the function from that dictionary of operations and we get our answer. So I'm going to change this back to answer (##$$##) and we're passing in num1 and num2 into the calculation function. 
+    
+    ####10while###@@@@ ##$$## first_answer = calculation_function(num1, num2)
+    answer = calculation_function(num1, num2)
+    
+    ####10while###@@@@ ##$$## print(f"{num1} {operation_symbol} {num2} = {first_answer}")
+    print(f"{num1} {operation_symbol} {num2} = {answer}")
+  
+    ####10while###@@@@ Now, once this line has been printed, everything that occurs afterwards from previous code is pretty much repetition (I mark them with ####----10!!!!----# inside the ###!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-------).
+    
+    #### Let's say that at this point we decided, you know what, we're going to ask them to pick another operation. 
+    
+    ###!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!---------------------------------------------
+    
+    #Here we select "*" which overides the "+" we selected on line 26.
+    
+    ####----10!!!!----# operation_symbol = input("Pick an operation: ") 
+    
+    ####----10!!!!----# num3 = int(input("What's the next number?: "))
+    ### And then let's ask them to pick another number.
+    
+    #Here the calculation_function selected will be the multiply() function
+    
+    ####----10!!!!----# calculation_function = operations[operation_symbol] 
+    
+    ### And finally, let's go ahead and get the calculation function again based on this new operation symbol that they picked.
+    ### And then we're going to calculate the new answer but this time, instead of passing over the calculation function, we're going to pass over the answer that we got back from this step.
+    
+    #Here the code will be:
+    #second_answer = multiply(multiply(num1, num2), num3)
+    
+    ####----10!!!!----# second_answer = calculation_function(calculation_function(num1, num2), num3)
+    
+    #second_answer = 2 * 3 * 3 = 18 !!!!!!!
+    #### So num1 is now the previous answer and the second number that's going to be the input is going to be num3.
+    ### At this point, when we're calling this calculation function, we're passing over the results or outputs of this calculation function, and that is going in right here, and then the third number goes in as the second input.
+    ### What basically has happened here is I've taken the output from previous answer function, so in fact, I could replace this answer with this output, and I've taken that as the first input into the calculation function and then num3 as the second input and then using all of this in order to get the answer.
+    
+    #### Let's call them first_answer, and let's call this second_answer just to differentiate the two answers.
+    #To fix this bug we need to change the code on line 60 from this: second_answer = calculation_function(calculation_function(num1, num2), num3) to following:
+    
+    ####----10!!!!----# second_answer = calculation_function(first_answer, num3)
+    
+    #In the next lesson, we will delete all the code from line 34-48 so don't worry
+    #It won't affect your final project.
+    #But it's a good oportunity to practice debugging. 🐞
+    
+    ### Without fixing that if we take 2 + 3 it will be 5, and then if we take another * symbol and num3 as 3, then the result gonna be 18, instead of 15.
+    
+    ### And now I'm going to write a slightly different print statement. In this case, the calculation is done using the first_answer and then the operation symbol and then the num3 that was inserted above in order to obtain the second_answer.
+  
+    ####----10!!!!----# print(f"{first_answer} {operation_symbol} {num3} = {second_answer}")
+    
+    ### In this case, what I'm able to do because I have an output from my calculation function from the very top of this code because each of these all return their answer, I'm able to take the result from that calculation and plug it right back into another calculation function using the result of that function call as the input to another function call.
+    #### And I'm only able to do this because I'm using the return statement and because I have outputs from my functions.
+    ### This would not be possible if I was using a print statement.
+  
+    ###!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!----------------------------------------------------
+  
+  
+    ####10while###@@@@ Now, once the line ""print(f"{num1} {operation_symbol} {num2} = {answer}")"" has been printed, everything that occurs above under the print line from previous code is pretty much repetition (I mark them with ####----10!!!!----# inside the ###!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-------).
+  
+    ####10while###@@@@ And instead we're going to ask the user to type y-- type y to continue calculating with the answer from the previous step.
+  
+    if input(f"Type 'y' to continue the calculating with {answer} or type 'n' to start a new calculation.:") == 'y':
+      num1 = answer
+    else:
+      should_continue = False
+      
+      calculator()
+      ####10while###@@@@ ####10while###@@@@ See the decribtion for calculator() on the end of the code:
+      ### This time we call our calculator function because when the user types no, and says that they don't want to continue calculating with the previous answer but instead they want to start a new calculation, what we want to do instead of just exiting the while loop, we want to call the calculator function because what this is going to do is it's basically going to take us all the way back up to the beginning where we get to enter a new input again. ####10while###@@@@ ####10while###@@@@ See the decribtion for calculator() on the end of the code.
+
+calculator()
+### This time we call our calculator function because to begin when we start, we have to call the calculator function in order for it to find the place where this function (def calculator()) was defined and to actually carry out all of these instructions. ####10while###@@@@ ####10while###@@@@ See the decribtion for calculator() on the end of the code.
+  
+    ####10while###@@@@ Let's check what this is actually equal to. So remember that the input function is also a function that has an output, which is a little bit then zen, but the output of this function is whatever the user typed in. So if they typed in y then this part is going to become y. That's where we're going to check.
+    
+    ####10while###@@@@ So we're going to check if the result of the input from the user is equal to y, then in that case that means we should continue and it should repeat back. But when it loops back, we want to make sure that num1 is equal to the answer from the previous step. So we can say if this is true, then num1 is going to be set to equal the answer. But on the other hand, else, if they typed anything else, so we could say maybe type y to continue calculating with answer or type n to exit (start a new calculation in this case).
+  
+    ####10while###@@@@ So now if they type y then the answer is going to be set as the num1 back at the start of this while loop so that this num1 becomes the answer from the previous step. But if they typed n then we want this while loop to the end. So we're going to change the flag should_continue to false.
+  
+    ####10while###@@@@ If the user didn't want to exit but if they wanted to start a new calculation, then how can we get them to go back all the way up here so that they provide the num1 as a fresh input?
+    ####10while###@@@@ This is a little bit tricky and in programming, this concept is known as recursion. It's basically the idea that you could have a function that calls itself.
+
+
+  ####10while###@@@@ ####10while###@@@@ So let's define a new function called calculator and this function takes no inputs and has no outputs. But all of this code that we've got here so far is inside the calculator function. To begin when we start, we have to call the calculator function in order for it to find the place where this function was defined and to actually carry out all of these instructions. Now, the next thing we get to do is a little bit interesting because when the user types no, and says that they don't want to continue calculating with the previous answer but instead they want to start a new calculation, what we want to do instead of just exiting the while loop, we want to call the calculator function because what this is going to do is it's basically going to take us all the way back up to the beginning where we get to enter a new input again. And remember that once you reach the end of a function, everything gets reset to the beginning. So should_continue becomes true again and this while loop will continue working.
