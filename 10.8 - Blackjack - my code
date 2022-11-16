@@ -1,0 +1,271 @@
+############### Blackjack Project #####################
+
+#Difficulty Normal 😎: Use all Hints below to complete the project.
+#Difficulty Hard 🤔: Use only Hints 1, 2, 3 to complete the project.
+#Difficulty Extra Hard 😭: Only use Hints 1 & 2 to complete the project.
+#Difficulty Expert 🤯: Only use Hint 1 to complete the project.
+
+############### Our Blackjack House Rules #####################
+
+## The deck is unlimited in size. 
+## There are no jokers. 
+## The Jack/Queen/King all count as 10.
+## The the Ace can count as 11 or 1.
+## Use the following list as the deck of cards:
+## cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+## The cards in the list have equal probability of being drawn.
+## Cards are not removed from the deck as they are drawn.
+## The computer is the dealer.
+
+##################### Hints #####################
+
+#Hint 1: Go to this website and try out the Blackjack game: 
+#   https://games.washingtonpost.com/games/blackjack/
+#Then try out the completed Blackjack project here: 
+#   http://blackjack-final.appbrewery.repl.run
+
+#Hint 2: Read this breakdown of program requirements: 
+#   http://listmoz.com/view/6h34DJpvJBFVRlZfJvxF
+#Then try to create your own flowchart for the program.
+
+#Hint 3: Download and read this flow chart I've created: 
+#   https://drive.google.com/uc?export=download&id=1rDkiHCrhaf9eX7u7yjM1qwSuyEk-rPnt
+
+
+#Hint 4: Create a deal_card() function that uses the List below to *return* a random card.
+#11 is the Ace.
+#cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+import random
+### We can of course import our random module.
+from replit import clear
+  ### See the describtion for this clear function at the end in the comments for <<while input("Do you want to play a game of Blackjack? Type 'y' or 'n': ") == 'y':>> loop
+
+from art import logo
+
+"""logo =
+.------.            _     _            _    _            _    
+|A_  _ |.          | |   | |          | |  (_)          | |   
+|( \/ ).-----.     | |__ | | __ _  ___| | ___  __ _  ___| | __
+| \  /|K /\  |     | '_ \| |/ _` |/ __| |/ / |/ _` |/ __| |/ /
+|  \/ | /  \ |     | |_) | | (_| | (__|   <| | (_| | (__|   < 
+`-----| \  / |     |_.__/|_|\__,_|\___|_|\_\ |\__,_|\___|_|\_\\
+      |  \/ K|                            _/ |                
+      `------'                           |__/           
+"""
+### Here the logo graph is put as a describtion, but to turn it into variable logo we need to move triple " before the word logo after the sign = like this: logo = """ and then the picture and again """ after the picture.
+
+### Here it is not part of the code, just to show it We need to put triple " after the = sign and at the end on the next line of logo picture to use it.
+
+### And then at the beginning of every game after the def play_game() function, we're going to print our logo. See that line of code.
+
+def deal_card():
+  """Returns a random card from the deck."""
+  cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+  card = random.choice(cards)
+  return card
+    ####  We are going to use random.choice to pick a random card from the list of cards. And then this of course has an output, this random.choice so we gonna save that output, namely the random card, inside a variable called card. And then finally we're going to return this chosen card as the output.
+
+
+  
+#Hint 6: Create a function called calculate_score() that takes a List of cards as input and returns the score. 
+#Look up the sum() function to help you do this.
+
+def calculate_score(cards):
+  """This function takes the list of cards and returns the score calculated from the cards."""
+  ### docstring
+    
+  ### This calculate_score is going to take some cards as an input, and then inside the body it's going to calculate the total of all the cards in the list cards.
+  ### So if we take a look at the sum() function in Python, the way that it works is you can put a iterable, so like a list inside the parentheses as an input and then it's going to add up all of the items in the list and it's going to return the total.
+  ### Inside these parentheses of sum() function we can pass over the cards and we can return this value as the output return sum(cards). We will put our return sum(cards) after the #Hint 8, to complete the #Hint 7 and #Hint8 too.
+  
+  
+  
+    #Hint 7: Inside calculate_score() check for a blackjack (a hand with only 2 cards: ace + 10) and return 0 instead of the       actual score. 0 will represent a blackjack in our game.
+  ### if 11 in cards and 10 cards and len(cards) == 2: or to simplify:
+  if sum(cards) == 21 and len(cards) == 2:
+    return 0
+    ### This way we can indicate that the user or the computer has got a score of Blackjack.
+
+  
+
+    #Hint 8: Inside calculate_score() check for an 11 (ace). If the score is already over 21, remove the 11 and replace it with a You might need to look up append() and remove().
+  if 11 in cards and sum(cards) > 21:
+    cards.remove(11)
+    cards.append(1)
+    ### list.remove(elem) -- searches for the first instance of the given element and removes it (throws ValueError if not present)
+    ### list.append(elem) -- adds a single element to the end of the list. Common error: does not return the new list, just modifies the original.
+    
+  return sum(cards)
+
+
+  
+#Hint 9: Call calculate_score(). If the computer or the user has a blackjack (0) or if the user's score is over 21, then the game ends.
+  #### And remember that you can only call a function after it's been declared. So to call calculate_score() and to complete #Hint 9, we need to move our calculate_score(cards) function (starting #Hint 6) to where we dealt our cards.
+
+
+#Hint 13: Create a function called compare() and pass in the user_score and computer_score. If the computer and user both have the same score, then it's a draw. If the computer has a blackjack (0), then the user loses. If the user has a blackjack (0), then the user wins. If the user_score is over 21, then the user loses. If the computer_score is over 21, then the computer loses. If none of the above, then the player with the highest score wins.
+    ### We moved the #Hint 13 to this place, as in order to call a function, it has to be declared before the line we want to use it.
+def compare(user_score, computer_score):
+  if user_score == computer_score:
+    return "Draw"
+  elif computer_score == 0:
+    ### == 0 means computer has Blackjack
+    return "Lose, opponent has Blackjack."
+  elif user_score == 0:
+    return "You win with a Blackjack."
+  elif user_score > 21:
+    return "You lose, you went over."
+  elif computer_score > 21:
+    return "You win, opponent went over."
+  elif user_score > computer_score:
+    return "You win."
+  else:
+    return "You lose."
+    ### else: return "You lose." because we've covered everything else and now we have the final return, which is "You lose".
+
+  ####  if, elif, else statements are evaluated from top to bottom.
+  ##### Even though if the computer score is a zero which is a Blackjack, because it's going to return the result at that point and it's going to exit the function, it will never get to the other comparisons if this is already true. 
+
+############@@@@@@@@@@@@@@@ But now that we've completed our compare function, we can use it at the end of our code after #Hint 12 while loop. 
+    
+def play_game():
+  ### See the describtion for this play_game() function at the end in the comments for <<while input("Do you want to play a game of Blackjack? Type 'y' or 'n': ") == 'y':>> loop
+  #Hint 5: Deal the user and computer 2 cards each using deal_card() and append().
+  #user_cards = []
+  #computer_cards = []
+    #### So we're going to deal the user and computer two cards each using the deal card function.
+    #### The hint tells us that we can start out with a blank user_card and a blank computer_card list.
+
+  print(logo)
+  
+  user_cards = []
+  computer_cards = []
+  
+  is_game_over = False
+    ### See the describtion over the line: if user_score == 0 or computer_score == 0 or user_score > 21:
+  
+  #### So we basically just have to add two cards to each of these lists. To do this, we are going to use a for loop and I'm going to use the range operator to run this for-loop twice (range(2)).
+  for _ in range(2):
+    # new_card = deal_card()
+    # user_cards.append(new_card)
+    # Here we're creating this new_card variable just to hold the output from the function and then we're immediately putting it into this list using the append.
+    
+    # Instead we can actually just get rid of the middleman and put deal_card directly inside the append.
+    user_cards.append(deal_card())
+  
+    computer_cards.append(deal_card())
+    ### Once we've done this for user_cards, we'd probably want to do the same thing for the computers cards. So it computer_cards.append, and then we call deal_card again, remembering the parentheses.
+    
+    ### In this sintax we use underscore _ here because we don't actually need this particular variable. All we need is for this loop to run twice and this code is going to achieve that.  
+    ### Every single time this loop runs we're going to get a new card by calling deal_card.
+    # e.g for this: new_card = deal_card()
+    #### So that random card is going to replace this function (deal_card()) call so we can capture that data by storing it inside of a variable. So we'll call that new_card and set it equal to the output from the function deal_card.
+  
+    ### The next thing we're going to do is we're going to add this new_card to the user's cards user_cards.
+    #### So at the moment, it's an empty list and all we have to do is say user_cards.append and then the object that we want to add to that list is going to be the new_card.
+    # e.g for this: user_cards.append(new_card)
+  
+    #### Now some people might be tempted to instead use the plus equals: to write something like this; user_cards += new_card intead of using user_cards.append(new_card).
+    #### And I want to show you what actually happens when yourun this. Because this is a really common error.
+    #### Above mentioned += is actually shorthand for writing the extend function. The extend function is something that extends a list by appending elements from the iterable. It means that whatever we put inside the parentheses, it has to be a list itself.
+    ### But when you only want to add a single item, not a list, to an existing list then you have to use append.
+  
+      #### So we've got a total of three parentheses at the end and this way we deal a new card and that new card gets appended to the end of this list.
+  
+  
+    #Hint 11: The score will need to be rechecked with every new card drawn and the checks in Hint 9 need to be repeated until the game ends.
+  
+    #### If is_game_over false, then we can actually create a while loop after the initial setup which basically keeps on calculating the user_score and the computer_score, makes all of these checks, which are in hint 9, and then repeats itself until the game ends. See the line while not is_game_over.
+    #### while not is_game_over, then go ahead and carry out all of the instructions under the following while.
+  
+  while not is_game_over:
+    ### We indented our code until the #Hint 12
+    ### This while loop is for the user so that they can continue taking cards.
+    
+    ### The following two lines comes after #Hint 9 to here: Se above: #Hint 9: Call calculate_score(). If the computer or the user has a blackjack (0) or if the user's score is over 21, then the game ends.
+      #### And this is the place where we can to call it because it's only after we've dealt the user and the computer some cards we can actually calculate their scores storing them in the variables user_score and computer_score.
+      
+    user_score = calculate_score(user_cards)
+    computer_score = calculate_score(computer_cards)
+      ### So the user_score or the computer_score score could equal zero if it got a Blackjack or it could just simply be the value of the cards that they hold all added up together.
+    
+    ### To test our code and see how everything works we can add here print() functions:
+    
+    print(f"Your cards: {user_cards}, current score:{user_score}")
+    print(f"Computer first card: {computer_cards[0]}")
+      ### In the rules of Blackjack, the dealer will reveal their first card so we get a little bit of a clue as to what kind of hand they might have. So here, we're going to insert the computer's cards and we're only gonna pick out the first item, so that the one at index zero, and we do that using a square bracket after the name of the list.
+          ####$$$ If we run the code at this point, e.g. we may get the following resuts:
+              # Your cards: [5, 4], current score:9
+              # Computer first card: 2
+    
+    ### Now that we've called calculate_score we also want to make sure that if the computer or the user has a Blackjack (== 0) or if the user's score is over 21, then we have to end the game. #Hint 9: Call calculate_score(). If the computer or the user has a blackjack (0) or if the user's score is over 21, then the game ends. We can create a new variable is_game_over under our variables user_cards = [] and computer_cards = [] and set it False boolean value, and when game ends we set its value to True.
+    
+    if user_score == 0 or computer_score == 0 or user_score > 21:
+      is_game_over = True
+      
+      
+    #Hint 10: If the game has not ended, ask the user if they want to draw another card. If yes, then use the deal_card() function to add another card to the user_cards List. If no, then the game has ended.
+    
+      ### To complete #Hint 10 we can add an else in the if statement because if the game hasn't ended, as in they haven't gone over 21 or nobody's got a Blackjack, then we're going to ask the user if they want to get another card.
+    
+    else:
+      user_should_deal = input("Type 'y' to get another card, type 'n' to pass: ")
+      if user_should_deal == "y":
+        user_cards.append(deal_card())
+      else:
+        is_game_over = True
+        ### If this variable user_should_deal is equal to 'y' then we're going to add another card to the user's card list by doing the same thing that we did in the beginning where we dealt two cards to each player by saying user_cards.append and inside the parentheses the thing that we want to append is the output from deal_card.
+        ### If they didn't type 'y', then that means they don't want another card. Well, then in this case, the game has again ended.
+        ### Now we need to complete #Hint 11, othervise whatever we type after user_should_deal the code will stop there.
+    
+    #Hint 11: The score will need to be rechecked with every new card drawn and the checks in Hint 9 need to be repeated until the game ends.
+    
+      #### If is_game_over false, then we can actually create a while loop after the initial setup which basically keeps on calculating the user_score and the computer_score, makes all of these checks, which are in hint 9, and then repeats itself until the game ends. See the line while not is_game_over.
+        
+  
+  
+        
+  #Hint 12: Once the user is done, it's time to let the computer play. The computer should keep drawing cards as long as it has a score less than 17.
+        #### But, of course, 0 which represents a Blackjack is also less than 17, but we don't want it to draw a card if it has a Blackjack.
+  
+  while computer_score != 0 and computer_score < 17:
+    computer_cards.append(deal_card())
+    computer_score = calculate_score(computer_cards)
+    ### This while loop is for the computer so that the dealer can follow their strategy.
+  
+  
+  
+      ####$ We can represent this logic using a while loop; while the computer_score is not equal to zero and the computer_score is less than 17, then in this case we want to keep drawing cards. We're going to take the computers cards and we're going to use the append to add a card by dealing another card to the computer. And then we're going to recalculate the computer_score so that it updates and this while loop is evaluated on the latest score. So the computer_score is going to equal calculate_score using the computer's cards. And that means that the updated computer_score is equal to the return value from calculate_score.
+  
+  
+  ############@@@@@@@@@@@@@@@ But now that we've completed our compare function, we can use it at the end of our code after #Hint 12 while loop, because this is a time that the user is done drawing cards, the computer's done drawing cards and now we can call that compare function and pass in the user_score and also the computer_score:
+  
+  print(f"   Your final hand: {user_cards}, final score: {user_score}")
+  print(f"   Computer's final hand: {computer_cards}, final score: {computer_score}")
+  print(compare(user_score, computer_score))
+  ### This should hopefully give us the final result as a piece of text.    
+    #### We can probably give the user a little bit more information, like revealing the final deck; what the computer got, and what we got. So we can go ahead and create some other print statements above the print(compare(user_score, computer_score)) statement (see it above).
+  
+  
+  #Hint 14: Ask the user if they want to restart the game. If they answer yes, clear the console and start a new game of blackjack and show the logo from art.py.
+  
+  ### to complete #Hint 14 we need to insert input function like yhis: input("Do you want to play a game of Blackjack? Type 'y' or 'n': ")
+  
+  
+  #### This entire function is going to be evaluated and the result or the output is going to replace this part of the code.
+  ### So we can say that while the input is equal to y then we're going to keep playing the game. The game is all the code between hint 5 and the end where we compare here with this constrution of code (not included the ohter hints with their codes above #Hint 5 here).
+
+while input("Do you want to play a game of Blackjack? Type 'y' or 'n': ") == "y":
+  clear()
+  play_game()
+
+### So if we actually put this inside a function by indenting it over and then creating a function here called play_game, well then we can actually call this function, play_game, every time the user types 'y'.
+
+### So before we call play_game, we also want to clear the console. And to do that we obviously have to import the clear function from the replit module.
+### Now we can call this clear function to clear the console after each game. And then we can call play_game so that the code in our function gets repeated.
+
+### And also we can import our logo for the game. 
+
+### Here it is not part of the code, just to show it We need to put triple " after the = sign and at the end on the next line of logo picture to use it.
+
+### And then at the beginning of every game after the def play_game() function, we're going to print our logo. See that line of code.
