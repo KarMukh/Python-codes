@@ -18,3 +18,15 @@ print(f"enemies outside function: {enemies}")
 #### The result on console after running this code gonna be:
 ### enemies inside function: 2
 #### enemies outside function: 1
+
+
+############ Buuut blocks like if, while, for, all of these blocks of code with colons and indentation, they don't count as creating a local scope.
+
+#### A variable within a functionis only available within that function.
+# game_level = 3
+# enemies = [A, B, C]
+# if enemies > 3:
+#   new_enemy = enemies[1]
+# print(new_enemy)
+
+### The result for this function gonns be: B
