@@ -4,6 +4,7 @@ enemies = 1
 
 def increase_enemies():
   enemies = 2
+    ### Here we may think that we're tapping into this variable and setting it to two. But in fact, we're actually creating a completely new variable that's entirely separate from the enemies = 1.
   print(f"enemies inside function: {enemies}")
   #### this print function gonna print 2, because Local scope exists within functions.
   
