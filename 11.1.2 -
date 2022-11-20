@@ -1,0 +1,40 @@
+################### Scope ####################
+
+enemies = 1
+
+def increase_enemies():
+  global enemies
+  enemies = 2
+    ### In order to modify our global variable enemies, we actually have to explicitly say that we have a global variable which is called enemies that's defined somewhere outside of this function. And that is the enemies that we want to use inside this function. So it basically takes that global enemies into the function and allows you to modify it. Without this line of code we cannot modify something that is global within a local scope.
+  
+  print(f"enemies inside function: {enemies}")
+
+increase_enemies()
+print(f"enemies outside function: {enemies}")
+
+###########################
+### Just to show the differance:
+
+enemies_rrr = 1
+
+def increase_enemies_rrr():
+  print(f"Our enemies inside function: {enemies_rrr}")
+  return enemies_rrr + 1
+  ### Instead of modifying the enemies_rrr, we actually just simply returned it as the output.
+
+enemies_rrr = increase_enemies_rrr()
+print(f"Our enemies outside function: {enemies_rrr}")
+
+
+
+########## So usually, in order to differentiate these constants which you're pretty much never going to change from the variables which you are likely to change, the naming convention in Python is to turn it into all uppercase.
+
+######## For example, if you had PI or you had a URL that you needed to use, then these are all going to be uppercased, separated with underscores. What this means is that later on in your function and you want to use one of these global constants, as soon as you type it, you can see it's the uppercase and you know to remind yourself to not modify this inside your code. Now that we've talked a little bit about scope, it's time to put your knowledge into action. Head over to the next lesson and I've got a quiz that will test your understanding.
+
+### e.g
+
+PI = 3.1415
+URL = "http/
+
+def calc():
+  
