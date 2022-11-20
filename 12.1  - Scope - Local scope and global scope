@@ -1,0 +1,20 @@
+################### Scope ####################
+
+enemies = 1
+
+def increase_enemies():
+  enemies = 2
+  print(f"enemies inside function: {enemies}")
+  #### this print function gonna print 2, because Local scope exists within functions.
+  
+increase_enemies()
+print(f"enemies outside function: {enemies}")
+#### this print function gonna print 1, because Local scope exists within functions.
+### So this has a global scope. It's available anywhere within our file because it was defined at the top level of the file. 
+### Global variables are available within functions, no matter how deep it gets nested and it's also available outside of functions.
+
+
+
+#### The result on console after running this code gonna be:
+### enemies inside function: 2
+#### enemies outside function: 1
