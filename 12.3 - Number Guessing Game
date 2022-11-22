@@ -1,0 +1,119 @@
+#Number Guessing Game Objectives:
+# Include an ASCII art logo.
+# Allow the player to submit a guess for a number between 1 and 100.
+# Check user's guess against actual answer. Print "Too high." or "Too low." depending on the user's answer. 
+# If they got the answer correct, show the actual answer to the player.
+# Check the difficulty easy or hard with 10 or 5 attempts.
+# Track the number of turns remaining.
+# If they run out of turns, provide feedback to the player. 
+# Include two different difficulty levels (e.g., 10 guesses in easy mode, only 5 guesses in hard mode).
+
+###############
+
+#Number Guessing Game Objectives:
+
+# Include an ASCII art logo.
+# Allow the player to submit a guess for a number between 1 and 100.
+
+from random import randint
+#### Here from the random module we inport randint function
+
+
+EASY_LEVEL_TURNS = 10
+HARD_LEVEL_TURNS = 5
+
+###!!!*** Here we neet to create a global constant, see the describtion below in the comment with this sign ###!!!*** Here we neet to create a global constant...
+
+
+# Check user's guess against actual answer. Print "Too high." or "Too low." depending on the user's answer. 
+    ### %%^^ To complete this task from the lones below, we need to create a function here and we're gonna pass in the user's guess and the actual answer in order to achieve this checking functionality:
+
+def check_answer(guess, answer, turns):
+  """Checks answer against guess, returns the number of turns remaining."""
+  #### see the describtion for turns in the parentaces of this function inside two comment signs ###$$$$$$$$$$$$$$$$$$$$$ below: 
+  if guess > answer:
+    print("To high!")
+    return turns - 1
+  elif guess < answer:
+    print("To low!")
+    return turns - 1
+  else:
+    print(f"You got it! The answer was {answer}.")
+
+# Check the difficulty easy or hard with 10 or 5 attempts.
+    ###@@@$$%% We can create this other function, some way of setting the difficulty and it's probably not going to take any inputs. We can put that into an input, choose a difficulty easy or hard. And then we're going to save this probably into a variable, hich we will call level, so the level of difficulty that they want.
+
+def set_difficulty():
+  level = input("Choose a difficulty. Type 'easy' or 'hard': ")
+  if level == 'easy':
+    return EASY_LEVEL_TURNS
+        ### return is more better than use: turns = EASY_LEVEL_TURNS and then set another global variable for turns. If this is set as return, then we can simply call this function set_difficulty (see below the variable turns = set_difficulty()), which is going to trigger the above mentioned input in variable level.
+  else:
+    return HARD_LEVEL_TURNS
+    ###!!!*** Here we neet to create a global constant (let say EASY_LEVEL_TURNS and HARD_LEVEL_TURNS  - and we put it uppercase just to differentiate, because we are pretty much never going to change it) and if we create this global constant at the very top, then if we want to switch around how our game works, we can really easily access these constant by just scrolling through the top of the page.
+
+    ### So what we'll need is some sort of way of tracking this number of turns. But how do we know how many turns we get? It depends on what we chose easy or hard.
+
+      #@#@^^^^&&** We can create a new function here, which i'll call game (we have global variables below: guess = 0, turns = set_difficulty() and answer = randint(1, 100)). We can put our game functionality inside its own function and now we'll need to call and trigger this game inside the global scope if we actually want this to be carried out. See above the sign #@#@^^^^&&** 
+
+def game():
+  print("Welcome to the Guessing game!")
+  print("I'm thinking of a number between 1 and 100.")
+  
+  ### Now inside our code, we can simply just use randint. We can say:
+  answer = randint(1, 100)
+  """ randint returns random integer in range [a, b] including both end points: a and b """
+    ### In our case randint includes both 1 and 100.
+  
+  
+  turns = set_difficulty()
+  ### If this is set as return, then we can simply call this function set_difficulty, which is going to trigger the above mentioned input in variable level.
+  
+  
+  ####:::::: To get the guessing functionality to repeat if users get it wrong, probably it is gonna require a while loop before guess.
+  
+  guess = 0
+    ### When we do this, we get an error, undefined name guess because guess hasn't been declared yet. So we can just declare it outside of the while loop and simply just create it as a variable and set that to equal zero. 
+  
+  while guess != answer:
+    print(f"You have {turns} attempts remaining to guess the number.")
+
+  ###$$$$$$$$$$$$$$$$$$$$$
+    ### This print statement that runs only once because it's not inside the while loop. So we need to track the number of turns and reduce it by one if they get it wrong. We know that the user got it wrong inside the check_answer() function above.
+      ### One way of tackling this is creating a global variable called turns (under the variable HARD_LEVEL_TURNS = 5), set it to start off at zero: turns = 0, and then inside this function, def check_answer() function we can simply just put turns -= 1 when it's too low or too high. Now because this is a global variable we again would need to say global turns in order to use it inside our function. But this is not a good idea because it means that we're modifying the global function within a local scope.
+      ### To achieve the same functionality without having to use a global variable, instead we can just pass in the number of turns that we currently have and then inside our function and we can return the number of turns minus one
+      ### And when we call the function check_answer, we can pass in the current number of turns which remember it got set by the set_difficulty function, and we can pass that in into here.
+    ###$$$$$$$$$$$$$$$$$$$$$
+    
+    guess = int(input("Make a guess: "))
+    #### We need an input to ask the user to make a guess, and then we're going to have to save their guess in an variable guess and convert it to an integer.
+    
+    # Check user's guess against actual answer. Print "Too high." or "Too low." depending on the user's answer. 
+        ### %%^^ To complete this task we need to create a function, see above under this comment sign ### %%^^
+    
+    # Check the difficulty easy or hard with 10 or 5 attempts.
+        ###@@@$$%% We can create this other function, some way of setting the difficulty. and it's probably not going to take any inputs.
+    
+        #### Even though we've got our check_answer function, it's not actually being called anywhere. So lets go ahead and call that function, check_answer and then we can pass in the user's guess that they made, and we can also pass in the correct answer which comes from answer = randint(1, 100).
+    turns = check_answer(guess, answer, turns)
+    ### And when we call the function check_answer, we can pass in the current number of turns which remember it got set by the set_difficulty function, and we can pass that in into here.
+    ###$$$$$$$$$$$$$$$$$$$$$
+    ### If this is going to be the number of turns remaining, then we can save that to this variable turns so that we update this local variable every time we check the answer.
+    
+    ####:::::: To get the guessing functionality to repeat if users get it wrong, probably it is gonna require a while loop before guess.
+      #@#@^^^^&&** We can create a new function here, which i'll call game (we have global variables above: guess = 0, turns = set_difficulty() and answer = randint(1, 100)). We can put our game functionality inside its own function and now we'll need to call and trigger this game inside the global scope if we actually want this to be carried out. See above the sign #@#@^^^^&&** 
+
+    ### We need some way of tracking when this number of turns goes down to zero. When that happens, we have to stop the game and tell them that they've lost. We can create an if statement, check if the number of tons is equal to zero and print something.
+    if turns == 0:
+      print("You've run out of guesses. You lose!")
+      return
+      ### And to make our game end we can use return function. Using return We can return with an output or we can just write return for it to exit and end the function in our case.
+    elif guess != answer:
+      print("Guess again.")
+      
+game()
+
+# If they got the answer correct, show the actual answer to the player.
+# Track the number of turns remaining.
+# If they run out of turns, provide feedback to the player. 
+# Include two different difficulty levels (e.g., 10 guesses in easy mode, only 5 guesses in hard mode).
