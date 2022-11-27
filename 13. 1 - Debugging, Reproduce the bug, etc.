@@ -1,0 +1,174 @@
+############DEBUGGING#####################
+#### debugging codes block by block:
+
+#### We have 6 examples of debugging the code with their initial version (with a bug or bugs) and the improved version after that. We can uncomment the initial or improved version and run the code to see the differance.
+
+    # 1. # debugging
+
+# # Describe Problem
+# def my_function():
+#   for i in range(1, 20):
+#     if i == 20:
+#       print("You got it")
+# my_function()
+
+
+# def my_function():
+#   for i in range(1, 21):
+#     if i == 20:
+#   ### When we write range(1, 20), it actually goes from 1 all the way up to 19 but not including 20.
+#   ### So to debug our function we can write range(1, 21) instead range(1, 20)
+#       print("You got it")
+# my_function()
+
+###########$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+    # 2. # Reproduce the bug
+
+# from random import randint
+# dice_imgs = ["❶", "❷", "❸", "❹", "❺", "❻"]
+# dice_num = randint(1, 6)
+# print(dice_imgs[dice_num])
+
+### When we run the code, sometimes it will work and it will print out one of the dice images from this list, but occasionally you will get an error:
+
+# Traceback (most recent call last):
+#   File "main.py", line 33, in <module>
+#     print(dice_imgs[dice_num])
+# IndexError: list index out of range
+
+###These types of bugs are really difficult because you might test your code only once or twice, and it looks all fine. It works. But then occasionally you get an error.
+
+### randint return a random integer in the range of a and b, including both end points. So in our case, both 1 and 6 could be generated and it could be any number. But what if comment out the line dice_num = randint(1, 6) and put instead dice_num = 6 in other words what if we tested 6? Well, now every time we hit run, you can see we get an error.
+
+### And now that we've got our error to show up consistently, it's a lot easier to debug because we know that the index error list index out of range happens when this dice number is 6.
+
+### So when we go back to our previous code, well, we can't use 6 in this list because lists start counting from 0. So to get this dice 1, we need dice_num to be 0. And then this is 1, 2, 3, 4, 5, and 6 is somewhere out here and it doesn't exist.
+
+## So that is as simple as shifting down these numbers. So instead of making a random number between 1 and 6, we actually want a random number between 0 and 5.
+
+
+# from random import randint
+# dice_imgs = ["❶", "❷", "❸", "❹", "❺", "❻"]
+# dice_num = randint(0, 5)
+# ###dice_num = 6
+# print(dice_imgs[dice_num])
+
+
+###########$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+    # 3. # Play Computer
+
+# year = int(input("What's your year of birth? "))
+# if year > 1980 and year < 1994:
+#   print("You are a millenial.")
+# elif year > 1994:
+#   print("You are a Gen Z.")
+
+### If we type 1994, it will skip because 1994 > 1980 (so it is true) but 1994 !< 1994 (so it is false), true and false toghether brings to false and it will skip this term, on the elif term 1994 !> 1994 (so this one is also false) it will skip this term too.
+
+### And when we type 1979 or less then again it will bring nothing back.
+### In this case we we will input also else term, with some text:
+
+# year = int(input("What's your year of birth? "))
+# if year > 1980 and year <= 1994:
+#   print("You are a millenial.")
+# elif year > 1994:
+#   print("You are a Gen Z.")
+# else:
+#   print("You are out of our range years to consider.")
+
+
+###########$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+
+    # 4. # Fix the Errors
+
+# age = input("How old are you? ")
+# if age > 18:
+# print("You can drive at age {age}.")
+
+#### So here we've got a print statement and when we hover over it, it tells us that it expected an indented block. So we have indentation erroe here.
+
+### But after indenting print statement if we type letbsay 11 we will get another error:
+
+# Traceback (most recent call last):
+#   File "main.py", line 92, in <module>
+#     if age > 18:
+# TypeError: '>' not supported between instances of 'str' and 'int'
+
+### If we search on the internet  <<TypeError: '>' not supported between instances of 'str' and 'int'>> we will see <<the problem is, that you're getting the input from the console as a string and you must cast that input as an int before you try to do these numerical operations like comparisons.>>
+
+### So we need to turn our input into integer. But even though we will get our print statment saying <<You can drive at age {age}.>>
+### Here we need to transform it into f-string.
+### And another print statement for the people under 18.
+
+# age = int(input("How old are you? "))
+# if age > 18:
+#   print(f"You can drive at age {age}.")
+# else:
+#   print(f"You can't drive at age {age}.")
+
+
+###########$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+
+    # 5. #Print is Your Friend
+
+# pages = 0
+# word_per_page = 0
+# pages = int(input("Number of pages: "))
+# word_per_page == int(input("Number of words per page: "))
+# total_words = pages * word_per_page
+# print(total_words)
+
+### If we look closely, you'll see that instead of a single equal sign which means assignment, this variable should be equal to this value. We had two equal signs.
+
+### If we use print syayement for the lines: print(pages)
+### Same for: word_per_page() and total_words.
+### if we print word_per_page we can see it equals 0. 
+
+### Here instead of a single equal sign which means assignment, this variable should be equal to this value. We had two equal signs. This means does the variable word_per_page equal the value "Number of words per page: ". And this actually gets evaluated and becomes either true or false. Now, in this case, it's actually false. Words per page starts out being equal to zero (see the line  word_per_page = 0), and then it becomes equal to e.g. 250 or any other numer we input into the console. So if this line of code is false, then that's just left as it is, it doesn't actually affect anything. And this total word is still using zero, which is why it's printing out zero. So now that we've identified the issue, all we have to do to fix it is that deleting one of the equal signs.
+  
+# pages = 0
+# word_per_page = 0
+# pages = int(input("Number of pages: "))
+# word_per_page = int(input("Number of words per page: "))
+# print(pages)
+# print(word_per_page)
+# total_words = pages * word_per_page
+# print(total_words)
+
+
+###########$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+
+  # 6. #Use a Debugger
+
+# def mutate(a_list):
+#   b_list = []
+#   for item in a_list:
+#     new_item = item * 2
+#   b_list.append(new_item)
+#   print(b_list)
+
+# mutate([1,2,3,5,8,13])
+  ### mutate == մուտացիայի ենթարկել
+
+
+#### In this case, we've got a function that's supposed to mutate a list so that it takes a list as an input and then it's supposed to multiply each of the items in the list so the final output should be something like 2, 4, 6, 10, and so on and so forth. Basically taking each of these numbers and multiplying them by 2, which happens on this line of code. But unfortunately when we run it, we just get a list with a single value, 26.
+
+### So the simple problem is that when we are adding the new item to this b_list, we're doing it outside the loop. It's when this loop has completed and at the very end do we actually call this line. So what we needed to do to fix this code is just to indent that line over.
+
+### W e can copy these lines of code and then paste it into Python Tutor and then go ahead and click Visualize Execution. Now that it's inside the debugger, we can do a lot of things with it.
+
+
+
+# def mutate(a_list):
+#   b_list = []
+#   for item in a_list:
+#     new_item = item * 2
+#     b_list.append(new_item)
+#   print(b_list)
+
+# mutate([1,2,3,5,8,13])
