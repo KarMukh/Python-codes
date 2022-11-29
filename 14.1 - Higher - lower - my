@@ -1,0 +1,237 @@
+
+### The real challenge in today's project is to break down a big problem into smaller, solvable chunks.
+### So here they are:
+
+# 1. Display the art: both # 1.1. ASCII logo and # 1.2. ASCII VS.
+
+# 2. Randomly generated accounts right from the data to show up for comparision.
+      ### As we can see on the game_data.py file all of this game data there in the format of a dictionary that's nested inside a list.
+
+# 3. Format the account data into a printable format.
+      ### The data contains many key value pairs, the name of the account, the description, etc. But when we display it, it should be all nicely formatted; the name and then what they do and then where they're from. We'll have to add that as probably another problem to solve.
+
+# 4. Ask the user for a guess. Guess who has more followers.
+
+# 5. Check that answer and see if it's correct or if it's wrong.
+      ## We're going to probably have to break down this problem into smaller problems if we want to solve it.
+      ### 5.1. We probably need to figure out the follower count of each account, 
+      ### 5.2 Then we'll probably need to use an if statement to check if user is correct.
+
+# 6. Give us some feedback: "Sorry, that's wrong" or "You're right."
+
+# 7. In addition to all of that, the game repeats itself when the user gets it right.
+      ### So let's say in this case, I guess Dwayne Johnson, then you see how the game repeats itself: it goes back and it takes Dwayne Johnson puts it in position A and generates a new account in position B for me to go again.
+
+# 8. So not only does the game have to be repeatable, we also have to have some sort of way of making the accounts at Position B become the next account at position A.
+
+# 9. Clear the screen.
+      ### In between the rounds, if we get it right or if we get it wrong, the whole game actually clears the previous progress other than letting us know that we got it right and our current score and it displays everything afresh. It doesn't clutter up the screen and we have to scroll down.
+
+
+###############################################
+
+from art import logo, vs
+  ### Or we can do:
+# from art import logo
+# from art import vs
+  ## See # 1.
+from game_data import data
+  ## See # 2.
+  
+import random
+  ## See # 2.
+
+from replit import clear
+  # 9. 
+
+###%%%%-fromating-data####%%%%
+
+## See the description on the line ## 3.1.
+
+#### We can call the function format_data and it's going to take an input which is the account.
+
+def format_data(account):
+  """Format the account data into a printable format."""
+  account_name = account["name"]
+  account_description = account["description"]
+  account_country = account["country"]
+  return f"{account_name}, a {account_description}, from {account_country}."
+  ###And now using this account, we can make this more reusable by deleting the _a part of it. And instead of printing the final outcome, we are going to return it as the output.
+
+  ### So now we can call that function down in the # 2. after the nomination of account_a and account_b (after the sign ###***) and we can pass in each account in turn.
+
+  
+  
+# 3. Format the account data into a printable format.
+      ### The data contains many key value pairs, the name of the account, the description, etc. But when we display it, it should be all nicely formatted; the name and then what they do and then where they're from. We'll have to add that as probably another problem to solve.
+
+### So we know that the data of each of these accounts is basically a dictionary.
+  #### And we know that we access dictionaries using the key-value pair. So we could, for example, access the account name by tapping into the random account, let's say, account A, and then we use that square brackets and then we put in the key in here, which let me just check, is the name:
+
+# account_name = account_a["name"]
+# account_description = account_a["description"]
+# account_country = account_a["country"]
+
+# ## Now that we've got all of these pieces of data, we can now print the final version. 
+# print(f"{account_name}, a {account_description}, from {account_country}.")
+
+## 3.1. As we need to do the same for account_b. So instead of repeating all of this code, it might be a lot easier if I actually pulled this out into a separate function. So we can comment out our code inside the signs ####%%%%-fromating-data####%%%% and move our 3rd task above the function printing logo print(logo).
+
+
+###%%%%-fromating-data####%%%%
+
+
+   ### 5.2.1 see the description there 
+
+def check_answer(guess, a_followers, b_followers):
+  """Take the user's guess and the follower counts of A and B and then returns if they got it right."""
+  # if a_followers > b_followers:
+  #   if guess == "a":
+  #     return True
+  #   else return False
+    ### same if we write like following:
+  
+  if a_followers > b_followers:
+    return guess == "a"
+      ### because when this is evaluated, is guess equal to a, then it's going to return  true. But if guess is not A, if it's B, then it's going to return false.
+  else:
+    return guess == "b"
+    ### All together: the code says if A has more followers and they guessed A then return true. If B has more followers and they guessed B then return true. And if the opposite happens, then return false.
+     
+  
+# 1.1 Display the art: ASCII logo
+print(logo)
+
+score = 0
+  # 6.1 Score keeping. See the description there
+
+
+
+game_should_continue = True
+  # 7. Making the game repeatable.
+
+# 8.
+account_b = random.choice(data)
+
+while game_should_continue:
+  ### And then while game_should_continue is still true, then we'll repeat all of this code below. So let's indent that into the while loop.
+  #### Well, they get to keep going as long as they get the answer right, but the game ends as soon as they get it wrong. This is the point where we're going to change game_should_continue to false so that once it prints "Sorry, that's wrong." It's going to end the game.
+
+  # 2. Randomly generated accounts right from the data to show up for comparision.
+        ### As we can see on the game_data.py file all of this game data there in the format of a dictionary that's nested inside a list.
+  
+  ### Again on the top we type: <<from data import data>>, see above.
+  ### And now we can use that data to generate a random account. In order to generate a random item from that list, we have to use the random module (see above: import random). We can use that random module to tap into the choice function and pass in our data, which is a list. 
+  
+  ## So this function is going to take the data list and then find a random entry in there which will give us a random account. Probably we are going to need more than one random account because we need to compare A against B. We can call one accounts_a and the another one accounts_b.
+
+  ### initial version for # 2. 
+  # account_a = random.choice(data)
+  # account_b = random.choice(data)
+
+  ### new version of # 2. taking account the terms of the # 8. make sure that the account at position B becomes the next account at position A.
+  account_a = account_b
+  account_b = random.choice(data)
+
+  ### The first thing that happens when the game starts for the very first time is we generate a random account B. Now that account becomes the account A and then account B becomes a new random account.
+  ### Now when the game loops back, it's not going to touch the code above while loop. It's going to start from the line under the while loop.
+
+  
+
+  ### initial version for # 2.
+  # if account_a == account_b:
+  #   account_b = random.choice(data)
+    ### This make accounts_a different from accounts_b. So if account A equals account B, then in this case you make sure that account B is regenerated.
+
+
+  #### So now the account A is going to be replaced by the previous account B, and this new account B is going to be a new random account. But what if the new random account is still the same account? How can we get the code to continue checking until it has found a different account?
+  ### Well, we could replace the if statement with a while loop, then the code will keep checking until they are no longer equal. And this way, when we run our code, you can see that as long as I get the answer correct, then the previous B becomes the new A and B now becomes a new random account.
+  
+  while account_a == account_b:
+    account_b = random.choice(data)
+  
+  
+  ###***
+  
+  ###*** So now we can call that function down here and we can pass in each account in turn. For example, we could say print "Compare A: " which is going to be first_account. So we're going to use our fstring to insert the data that we get back from our function call. And we are going to call it within the print statement. We can, of course, take it out and create a separate variable, but maybe this should be clear enough to see what's going on. So we're going to call format_data and we're going to pass in the account A for this first line, and then we are going to do the same for B. So in this case, I'm going to pass an account B and it's going to format the data and then print it out.
+  
+  print(f"Compare A: {format_data(account_a)}")
+  print(vs)
+      # 1.2 Display the art: ASCII VS
+    ### We put the versus ASCII art VS in between the A and B by print(vs).
+  print(f"Against B: {format_data(account_b)}")
+  
+   
+    
+  # 4. Ask the user for a guess. Guess who has more followers.
+  
+  guess = input("Who has more followers? Type 'A' or 'B': ").lower()
+  
+      ### This input is going to come back as a string and we can save it inside a new variable called guess.
+      ### So we can turn this all into a lowercase format. So if they typed it capital, it'll become lower. If they typed it lowercase then it's already lower and it will be fine as well.
+  
+  
+  
+  # 5. Check that answer and see if it's correct or if it's wrong.
+        ## We're going to probably have to break down this problem into smaller problems if we want to solve it.
+        ### 5.1. We probably need to figure out the follower count of each account. 
+        ### 5.2 Then we'll probably need to use an if statement to check if user is correct.
+   
+      ### 5.1.
+  a_follower_count = account_a["follower_count"]
+  b_follower_count = account_b["follower_count"]
+  
+       ### 5.2.1
+  ### The next step is use an if statement to check if the user is correct.
+  ### So we are actually going to pull out of this main sort of flow of the game and define a separate function at the top. And this function is going to be called check_answer and it's going to get the guess, the a_followers and the b_followers.
+  
+      ### 5.2.2  
+  is_correct = check_answer(guess, a_follower_count, b_follower_count)
+     ### Now after # 5.2.1. we can create a new variable could is_correct and set that to equal the output of our check_answer function. So we're going to call it and pass in all the necessary things, the guess, the followers from A and B. So guess and then the a_follower count and the b_follower count.
+  
+  clear()
+    # 9. 
+  print(logo)
+    ###$$$^^^&&& # 10.
+  
+  # 6. Give us some feedback: "Sorry, that's wrong" or "You're right."
+  # 6.1 Score keeping.
+  
+  if is_correct:
+    score += 1
+    # 6.1 Score keeping
+    print("You are right.")
+    print(f"Your current score is {score}.")
+  else:
+    game_should_continue = False
+    print("Sorry, that is wrong.")
+    print(f"Your final score is {score}.")
+  
+  #### Now, in addition to giving them feedback, we should probably also keep track of the score. So we can start off our game with a score of zero. But as they play on and if they get it correct, then the score should be incremented by one each time.
+    # 6.1 Score keeping. See score = 0, which we put after logo printing, and score += 1 after if is_correct.
+  
+  
+  # 7. In addition to all of that, the game repeats itself when the user gets it right.
+        ### So let's say in this case, I guess Dwayne Johnson, then you see how the game repeats itself: it goes back and it takes Dwayne Johnson puts it in position A and generates a new account in position B for me to go again.
+  
+    ### Making the game repeatable usually going to require some sort of while loop. But it's important to think about which parts of our game actually repeat themselves.
+  
+      ## We need to create a flag like game_should_continue and start out as true. And then while that's still true, then we'll repeat all the code indented under the while loop. See abobe while game_should_continue:
+    #### Well, they get to keep going as long as they get the answer right, but the game ends as soon as they get it wrong. This is the point where we're going to change game_should_continue to false so that once it prints "Sorry, that's wrong." It's going to end the game.
+
+    
+
+# 8. So not only does the game have to be repeatable, we also have to have some sort of way of making the accounts at Position B become the next account at position A.
+
+    #### At the very beginning, we generate a random account A and a random account B. But instead, what we want to happen is we want to make sure that the account at position B becomes the next account at position A. So once this game has run its course and we're looping back to the beginning again, the account A should become the previous version of account B. But this obviously will give us an error because there is no previous account B. So what we could do is we could actually take this out of the loop and say account B is equal to a random choice of data and account A becomes that account B. But then the actual account B is going to be a new random account.
+
+# 9. Clear the screen.
+      ### In between the rounds, if we get it right or if we get it wrong, the whole game actually clears the previous progress other than letting us know that we got it right and our current score and it displays everything afresh. It doesn't clutter up the screen and we have to scroll down.
+
+### We need to clear the screen in between the rounds of our game so we know that we can import the clear function from the replit module (from replit import clear). But here's a question, where do you call it?
+    ### If we call our clear() function at the very begining of the while loop (after the line of the while game_should_continue), then our logo is never going to be displayed. And also, when we actually get the answer correct, the result isn't shown because the result is shown at the very end of this while loop. And once that's done, it's going to loop right the way back here and it's going to clear everything in the console. And that's all going to happen in a fraction of a second. So the user won't actually see it.
+  ### The ideal time, I think, to actually show it is just before they're about to see the outcome of their action.
+  ### So now, once we've asked the user what we need to ask and we've got their answer, we clear the screen and then we show them the outcome. Now when we run the code we get to see the logo, we get to see all the versus and A and B, let's select B and we got it right. So we get to see that feedback as well. It clears the screen and we have a new comparison to make.
+
+    ###$$$^^^&&& # 10.
+  ####### Now, the only thing you'll notice is that the logo disappears in each successive round. It might be nice to see it even if we're going to the next round. So to do that, we have to print the logo just after we clear the screen right here. So now, even though we've cleared the screen, we still get to see the logo again as long as we get the answer correct.
